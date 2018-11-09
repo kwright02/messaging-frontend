@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { FeedComponent } from './feed/feed.component';
+import { FeedComponent } from './sidebar/feed/feed.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule, MatDividerModule, MatSidenavModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

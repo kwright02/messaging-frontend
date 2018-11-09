@@ -1,0 +1,32 @@
+@import "../../styles";
+
+.example-container {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  background-color: $messaging-app-primary;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 15px;
+}
+
+.unselected-li {
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.selected-li {
+  margin-bottom: 15px;
+  text-decoration: underline;
+}

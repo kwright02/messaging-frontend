@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span class="fill-space"></span>
+    <form>
+      <mat-form-field floatLabel="never">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Input">
+      </mat-form-field>
+    </form>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened class="example-sidenav" disableClose = "true" [fixedInViewport]="false">
+      <ul>
+        <li class="unselected-li">Row 1</li>
+        <li class="unselected-li">Row 2</li>
+        <li class="selected-li">Row 3</li>
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-feed></app-feed>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

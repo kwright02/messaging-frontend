@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { POSTS } from '../../mock-posts';
+
 
 @Component({
   selector: 'app-feed',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
+
+  posts = POSTS;
 
   constructor() { }
 

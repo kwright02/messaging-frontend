@@ -7,7 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FeedComponent } from './sidebar/feed/feed.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule, MatDividerModule, MatListModule, MatSidenavModule} from '@angular/material';
+import {
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,6 +32,9 @@ import {MatCardModule, MatDividerModule, MatListModule, MatSidenavModule} from '
     MatCardModule,
     MatDividerModule,
     MatListModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@
   <mat-divider></mat-divider>
 </div>
 
-<mat-list *ngFor="let post of posts | orderByPipe">
+<mat-list *ngFor="let post of posts">
   <ng-container *ngIf="post.pending">
 
     <div class="card-bounds">
@@ -28,7 +28,7 @@
             overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
             1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%
           </mat-card-content>
-          <mat-card-actions>
+          <!--<mat-card-actions>-->
             <!--<button mat-button>APPROVE</button>-->
             <!--<button mat-button>DENY</button>-->
             <!--<div class="edit-icon">-->
@@ -36,8 +36,7 @@
                 <!--<mat-icon>edit</mat-icon>-->
               <!--</button>-->
             <!--</div>-->
-
-          </mat-card-actions>
+          <!--</mat-card-actions>-->
         </mat-card>
       </mat-list-item>
     </div>
@@ -49,7 +48,7 @@
   <mat-divider></mat-divider>
 </div>
 
-<mat-list *ngFor="let post of posts | orderByPipe">
+<mat-list *ngFor="let post of posts">
   <ng-container *ngIf="!post.pending">
 
     <div class="card-bounds">
@@ -68,11 +67,11 @@
             1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%
           </mat-card-content>
 
-          <mat-card-action>
+          <!--<mat-card-action>-->
             <!--<button mat-icon-button (click)="openDeleteDialog()">-->
               <!--<mat-icon>delete</mat-icon>-->
             <!--</button>-->
-          </mat-card-action>
+          <!--</mat-card-action>-->
         </mat-card>
       </mat-list-item>
     </div>

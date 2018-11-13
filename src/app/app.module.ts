@@ -8,9 +8,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FeedComponent } from './sidebar/feed/feed.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  MatButtonModule,
   MatCardModule,
   MatDividerModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule,
   MatSidenavModule,
@@ -35,6 +36,8 @@ import {
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,34 +1,27 @@
-@import "../../styles";
+@import '../../styles';
+
+.fill-space {
+  flex: 1 1 auto
+}
 
 .example-container {
   position: absolute;
   top: 60px;
-  bottom: 0;
+  bottom: 0%;
   left: 0;
   right: 0;
   display: flex;
-  height: 100vh;
 }
 
 .example-sidenav {
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 200px;
-  background-color: $messaging-app-primary;
+  background-color: mat-color($messaging-app-accent);
 }
 
-ul {
-  list-style-type: none;
-  margin-top: 15px;
-}
+.main-content{
 
-.unselected-li {
-  margin-bottom: 15px;
-  text-decoration: none;
-}
-
-.selected-li {
-  margin-bottom: 15px;
-  text-decoration: underline;
 }

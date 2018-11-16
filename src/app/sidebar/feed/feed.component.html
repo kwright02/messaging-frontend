@@ -1,10 +1,10 @@
-<!--<div class="fab-container">-->
-  <!--<button mat-fab (click)="openPostDialog()">-->
-    <!--<i class="material-icons">add</i>-->
-  <!--</button>-->
-<!--</div>-->
+<div class="fab-container">
+  <button mat-fab (click)="openPostDialog()">
+    <i class="material-icons">add</i>
+  </button>
+</div>
 
-<div class="card-bounds">
+<div class="heading-bounds">
   <p>Pending</p>
   <mat-divider></mat-divider>
 </div>
@@ -13,7 +13,6 @@
   <ng-container *ngIf="post.pending">
 
     <div class="card-bounds">
-      <mat-list-item>
         <mat-card>
           <mat-card-title>{{post.title}}</mat-card-title>
           <mat-card-subtitle>{{post.id}}</mat-card-subtitle>
@@ -28,7 +27,7 @@
             1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button color="primary">APPROVE</button>
+            <button mat-button>APPROVE</button>
             <button mat-button>DENY</button>
             <div class="edit-icon">
               <button mat-icon-button>
@@ -37,21 +36,18 @@
             </div>
           </mat-card-actions>
         </mat-card>
-      </mat-list-item>
     </div>
   </ng-container>
 </mat-list>
 
-<div class="card-bounds">
+<div class="heading-bounds">
   <p>Sent</p>
   <mat-divider></mat-divider>
 </div>
 
 <mat-list *ngFor="let post of posts">
   <ng-container *ngIf="!post.pending">
-
     <div class="card-bounds">
-      <mat-list-item>
         <mat-card>
           <mat-card-title>{{post.title}}</mat-card-title>
           <mat-card-subtitle>{{post.id}}</mat-card-subtitle>
@@ -65,13 +61,14 @@
             overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
             1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%
           </mat-card-content>
-          <!--<mat-card-action>-->
-            <!--<button mat-icon-button (click)="openDeleteDialog()">-->
-              <!--<mat-icon>delete</mat-icon>-->
-            <!--</button>-->
-          <!--</mat-card-action>-->
+          <mat-card-actions>
+            <div class="edit-icon">
+              <button mat-icon-button>
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </mat-card-actions>
         </mat-card>
-      </mat-list-item>
     </div>
   </ng-container>
 </mat-list>

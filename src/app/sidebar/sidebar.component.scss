@@ -25,3 +25,22 @@
 .main-content{
 
 }
+
+ul {
+  list-style-type: none;
+  margin-top: 15px;
+  color: $messaging-app-text;
+  font-family: $messaging-app-font, $messaging-app-font-family;
+  font-size: $messaging-app-font-size;
+  font-weight: $messaging-app-font-weight;
+}
+
+.unselected-li {
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.selected-li {
+  margin-bottom: 15px;
+  text-decoration: underline;
+}

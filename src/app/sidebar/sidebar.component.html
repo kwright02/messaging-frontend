@@ -13,12 +13,41 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav" disableClose = "true" [fixedInViewport]="false">
       <ul>
-        <li class="unselected-li">Row 1</li>
-        <li class="unselected-li">Row 2</li>
-        <li class="selected-li">Row 3</li>
+        <li class={{pendingClass}}>Pending</li>
+        <li>
+          <span class={{sentClass}}>
+            Sent
+          </span>
+          <ul>
+            <li [ngClass]="this.monthHighlightingClass[0] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[0])">August</li>
+            <li [ngClass]="this.monthHighlightingClass[1] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[1])">September</li>
+            <li [ngClass]="this.monthHighlightingClass[2] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[2])">October</li>
+            <li [ngClass]="this.monthHighlightingClass[3] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[3])">November</li>
+            <li [ngClass]="this.monthHighlightingClass[4] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[4])">December</li>
+            <li [ngClass]="this.monthHighlightingClass[5] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[5])">January</li>
+            <li [ngClass]="this.monthHighlightingClass[6] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[6])">February</li>
+            <li [ngClass]="this.monthHighlightingClass[7] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[7])">March</li>
+            <li [ngClass]="this.monthHighlightingClass[8] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[8])">April</li>
+            <li [ngClass]="this.monthHighlightingClass[9] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[9])">May</li>
+            <li [ngClass]="this.monthHighlightingClass[10] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[10])">June</li>
+            <li [ngClass]="this.monthHighlightingClass[11] ? 'selected-li' : 'unselected-li'"
+                (click)="onMonthClicked(monthNames[11])">July</li>
+          </ul>
+        </li>
       </ul>
     </mat-sidenav>
-    <mat-sidenav-content class="main-content">
-      <app-feed></app-feed>
+    <mat-sidenav-content class="main-content" (scroll)="checkScroll()" #feedContainer>
+      <app-feed #feed></app-feed>
     </mat-sidenav-content>
   </mat-sidenav-container>

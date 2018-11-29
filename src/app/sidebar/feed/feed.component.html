@@ -4,13 +4,12 @@
   </button>
 </div>
 
-<div class="heading-bounds">
+<div class="heading-bounds" #pendingMarker>
   <p>Pending</p>
   <mat-divider></mat-divider>
 </div>
 
-<mat-list *ngFor="let post of posts">
-  <ng-container *ngIf="post.pending">
+<mat-list *ngFor="let post of pendingPosts">
 
     <div class="card-bounds">
         <mat-card>
@@ -37,16 +36,63 @@
           </mat-card-actions>
         </mat-card>
     </div>
-  </ng-container>
 </mat-list>
 
-<div class="heading-bounds">
+<div class="heading-bounds" #sentMarker>
   <p>Sent</p>
   <mat-divider></mat-divider>
 </div>
 
-<mat-list *ngFor="let post of posts">
-  <ng-container *ngIf="!post.pending">
+<mat-list *ngFor="let post of sentPosts | orderByPipe ; let i = index" [attr.data-index]="i">
+
+  <ng-template [ngIf]="i == 0 && sentPosts[i].date.getMonth() == 7">
+    <div #augustMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 8) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 8)">
+    <div #septemberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 9) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 9)">
+    <div #octoberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 10) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 10)">
+    <div #novemberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 11) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 11)">
+    <div #decemberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 0) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 0)">
+    <div #januaryMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 1) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 1)">
+    <div #februaryMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 2) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 2)">
+    <div #marchMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 3) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 3)">
+    <div #aprilMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 4) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 4)">
+    <div #mayMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 5) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 5)">
+    <div #juneMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
+  <ng-template [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 6) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 6)">
+    <div #julyMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+  </ng-template>
+
     <div class="card-bounds">
         <mat-card>
           <mat-card-title>{{post.title}}</mat-card-title>
@@ -70,5 +116,4 @@
           </mat-card-actions>
         </mat-card>
     </div>
-  </ng-container>
 </mat-list>

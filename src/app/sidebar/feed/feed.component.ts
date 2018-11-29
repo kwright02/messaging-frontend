@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnChanges, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {POSTS} from '../../mock-posts';
 import {Post} from '../../post';
 
@@ -7,7 +7,7 @@ import {Post} from '../../post';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements AfterViewInit {
 
   monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
@@ -18,24 +18,25 @@ export class FeedComponent implements OnInit {
   pendingPosts: Post[] = [];
   sentPosts:    Post[] = [];
 
-  @ViewChild('pendingMarker') pendingMarker;
-  @ViewChild('sentMarker')    sentMarker;
+  @ViewChildren('pendingMarker') pendingMarker:     QueryList<any>;
+  @ViewChildren('sentMarker')    sentMarker:        QueryList<any>;
 
-  @ViewChild('augustMarker')    augustMarker;
-  @ViewChild('septemberMarker') septemberMarker;
-  @ViewChild('octoberMarker')   octoberMarker;
-  @ViewChild('novemberMarker')  novemberMarker;
-  @ViewChild('decemberMarker')  decemberMarker;
-  @ViewChild('januaryMarker')   januaryMarker;
-  @ViewChild('februaryMarker')  februaryMarker;
-  @ViewChild('marchMarker')     marchMarker;
-  @ViewChild('aprilMarker')     aprilMarker;
-  @ViewChild('mayMarker')       mayMarker;
-  @ViewChild('juneMarker')      juneMarker;
-  @ViewChild('julyMarker')      julyMarker;
+  @ViewChildren('augustMarker')    augustMarker:    QueryList<any>;
+  @ViewChildren('septemberMarker') septemberMarker: QueryList<any>;
+  @ViewChildren('octoberMarker')   octoberMarker:   QueryList<any>;
+  @ViewChildren('novemberMarker')  novemberMarker:  QueryList<any>;
+  @ViewChildren('decemberMarker')  decemberMarker:  QueryList<any>;
+  @ViewChildren('januaryMarker')   januaryMarker:   QueryList<any>;
+  @ViewChildren('februaryMarker')  februaryMarker:  QueryList<any>;
+  @ViewChildren('marchMarker')     marchMarker:     QueryList<any>;
+  @ViewChildren('aprilMarker')     aprilMarker:     QueryList<any>;
+  @ViewChildren('mayMarker')       mayMarker:       QueryList<any>;
+  @ViewChildren('juneMarker')      juneMarker:      QueryList<any>;
+  @ViewChildren('julyMarker')      julyMarker:      QueryList<any>;
+
+  markers: QueryList<any>[];
 
   constructor() {
-    console.log('constructor');
     for (const post of this.posts) {
       if (post.pending) {
         this.pendingPosts.push(post);
@@ -43,11 +44,32 @@ export class FeedComponent implements OnInit {
         this.sentPosts.push(post);
       }
     }
-    console.log(this.pendingPosts);
-    console.log(this.sentPosts);
   }
 
-  ngOnInit() {
-  }
+  ngAfterViewInit() {
+    this.markers = [this.augustMarker, this.septemberMarker, this.octoberMarker, this.novemberMarker,
+                    this.decemberMarker, this.januaryMarker, this.februaryMarker, this.marchMarker,
+                    this.aprilMarker, this.mayMarker, this.juneMarker, this.julyMarker];
 
+    this.sentMarker.changes.subscribe(
+      (result) => {
+        console.log(result.first.nativeElement);
+      }
+    );
+    this.pendingMarker.changes.subscribe(
+      (result) => {
+        console.log(result.first.nativeElement);
+      }
+    );
+    // console.log(this.sentMarker.first);
+    // console.log(this.pendingMarker.first);
+    console.log('In init ' + this.markers);
+    for (const marker of this.markers) {
+      marker.changes.subscribe(
+        (result) => {
+          console.log(result.first.nativeElement);
+        }
+      );
+    }
+  }
 }

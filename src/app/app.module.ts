@@ -30,7 +30,7 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
     SidebarComponent,
     FeedComponent,
     ApprovedDialogComponent,
-    CreatePostComponent
+    CreatePostComponent,
     FeedComponent,
     OrderByPipe
   ],

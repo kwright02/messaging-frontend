@@ -1,6 +1,10 @@
-import {AfterViewInit, Component, OnChanges, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {POSTS} from '../../mock-posts';
+import {Component, Inject, AfterViewInit, ViewChildren, QueryList} from '@angular/core';
+import { POSTS } from '../../mock-posts';
 import {Post} from '../../post';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {ApprovedDialogComponent} from './approved-dialog/approved-dialog.component';
+import {CreatePostComponent} from './create-post/create-post.component';
+
 
 @Component({
   selector: 'app-feed',
@@ -14,6 +18,16 @@ export class FeedComponent implements AfterViewInit {
   ];
 
   posts = POSTS;
+
+  constructor(public dialog: MatDialog) {
+    for (const post of this.posts) {
+      if (post.pending) {
+        this.pendingPosts.push(post);
+      } else {
+        this.sentPosts.push(post);
+      }
+    }
+  }
 
   pendingPosts: Post[] = [];
   sentPosts:    Post[] = [];
@@ -36,14 +50,24 @@ export class FeedComponent implements AfterViewInit {
 
   markers: QueryList<any>[];
 
-  constructor() {
-    for (const post of this.posts) {
-      if (post.pending) {
-        this.pendingPosts.push(post);
-      } else {
-        this.sentPosts.push(post);
-      }
-    }
+  openDeleteDialog(): void {
+    const dialogRef = this.dialog.open(ApprovedDialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  openCreatePostDialog(): void {
+    const dialogRef = this.dialog.open(CreatePostComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   ngAfterViewInit() {

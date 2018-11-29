@@ -1,5 +1,5 @@
 <div class="fab-container">
-  <button mat-fab (click)="openPostDialog()">
+  <button mat-fab (click)="openCreatePostDialog()">
     <i class="material-icons">add</i>
   </button>
 </div>
@@ -109,7 +109,7 @@
           </mat-card-content>
           <mat-card-actions>
             <div class="edit-icon">
-              <button mat-icon-button>
+              <button mat-icon-button (click)="openDeleteDialog()">
                 <mat-icon>delete</mat-icon>
               </button>
             </div>

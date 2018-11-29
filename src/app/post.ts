@@ -2,7 +2,7 @@ export class Post {
   id: number;
   pending: boolean;
   title: string;
-  date: number;
+  date: Date;
   // author: string;
   // post: string;
 }

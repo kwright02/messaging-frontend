@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FeedComponent } from './sidebar/feed/feed.component';
+import {OrderByPipe} from './sidebar/feed/orderby.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -29,7 +30,9 @@ import { QuillModule } from 'ngx-quill';
     SidebarComponent,
     FeedComponent,
     ApprovedDialogComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    FeedComponent,
+    OrderByPipe
   ],
   imports: [
     HttpClientModule,

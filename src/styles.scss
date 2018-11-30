@@ -21,6 +21,18 @@ $messaging-app-accent: mat-palette($mat-green, 800);
 // The warn palette is optional (defaults to red).
 $messaging-app-warn: mat-palette($mat-red);
 
+// Background color
+$messaging-app-background: mat-palette($mat-grey, A100);
+
+// Text color
+$messaging-app-text: #FFFFFF;
+
+// Font, font family, font size, and font weight
+$messaging-app-font: "Source Sans Pro";
+$messaging-app-font-family: sans-serif;
+$messaging-app-font-size: 20px;
+$messaging-app-font-weight: 300;
+
 // Create the theme object (a Sass map containing all of the palettes).
 $messaging-app-theme: mat-light-theme($messaging-app-primary, $messaging-app-accent, $messaging-app-warn);
 

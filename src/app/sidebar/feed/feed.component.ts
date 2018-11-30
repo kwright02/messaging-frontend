@@ -31,7 +31,8 @@ export class FeedComponent implements OnInit {
 
   openCreatePostDialog(): void {
     const dialogRef = this.dialog.open(CreatePostComponent, {
-      width: '250px',
+      width: '700px',
+      height: '600px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

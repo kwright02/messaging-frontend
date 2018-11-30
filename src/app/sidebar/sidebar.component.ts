@@ -8,7 +8,7 @@ import {consoleTestResultHandler} from 'tslint/lib/test';
 })
 export class SidebarComponent implements OnInit {
 
-  FIELD_TOP = 70;
+  FIELD_TOP = 550;
 
   monthNames = ['August', 'September', 'October', 'November', 'December',
                 'January', 'February', 'March', 'April', 'May', 'June', 'July' ];
@@ -26,25 +26,21 @@ export class SidebarComponent implements OnInit {
   sentMonthVisibility = 'hidden';
 
   checkScroll() {
-    const sentMarkerPosition      = this.feedContent.sentMarker.first.nativeElement.getBoundingClientRect().top;
+    this.pendingClass  = 'selected-li';
+    this.sentClass     = 'unselected-li';
+    this.sentMonthVisibility = 'hidden';
 
-    if (sentMarkerPosition <= this.FIELD_TOP) {
-      this.pendingClass  = 'unselected-li';
-      this.sentClass     = 'selected-li';
-      this.sentMonthVisibility = 'visible';
-
-      this.monthHighlightingClass = [false, false, false, false, false, false, false, false, false, false, false, false];
-      for (let i = 11; i >= 0; i--) {
-        if (this.feedContent.markers[i].first != null &&
-            this.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top <= this.FIELD_TOP) {
-          this.monthHighlightingClass[i] = true;
-          break;
-        }
+    this.monthHighlightingClass = [false, false, false, false, false, false, false, false, false, false, false, false];
+    for (let i = 11; i >= 0; i--) {
+      if (this.feedContent.markers[i].first != null &&
+        this.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top <= this.FIELD_TOP) {
+        this.monthHighlightingClass[i] = true;
+        console.log(this.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top);
+        this.pendingClass  = 'unselected-li';
+        this.sentClass     = 'selected-li';
+        this.sentMonthVisibility = 'visible';
+        break;
       }
-    } else {
-      this.pendingClass  = 'selected-li';
-      this.sentClass     = 'unselected-li';
-      this.sentMonthVisibility = 'hidden';
     }
   }
 

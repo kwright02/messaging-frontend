@@ -22,12 +22,12 @@ $messaging-app-warn: mat-palette($mat-red);
 $messaging-app-background: mat-palette($mat-grey, A100);
 
 // Text color
-$messaging-app-text: #000000;
+$messaging-app-text: #FFFFFF;
 
 // Font, font family, font size, and font weight
 $messaging-app-font: "Source Sans Pro";
 $messaging-app-font-family: sans-serif;
-$messaging-app-font-size: 18.6667px;
+$messaging-app-font-size: 20px;
 $messaging-app-font-weight: 300;
 
 // Create the theme object (a Sass map containing all of the palettes).

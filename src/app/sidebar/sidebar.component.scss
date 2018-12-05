@@ -22,7 +22,7 @@
   background-color: mat-color($messaging-app-accent);
 }
 
-.main-content{
+.main-content {
 
 }
 
@@ -34,12 +34,30 @@ ul {
   font-weight: $messaging-app-font-weight;
 }
 
-.unselected-li {
+.unselected-month {
   margin-bottom: 15px;
   text-decoration: none;
+  opacity: 0.9;
+  cursor: pointer;
 }
 
-.selected-li {
+.unselected-month:hover {
+  margin-bottom: 15px;
+  text-decoration: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.selected-month {
   margin-bottom: 15px;
   text-decoration: underline;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.unavailable-month {
+  margin-bottom: 15px;
+  text-decoration: none;
+  opacity: 0.5;
+  cursor: default;
 }

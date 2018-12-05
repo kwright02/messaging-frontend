@@ -19,30 +19,42 @@
             Sent
           </span>
           <ul>
-            <li [ngClass]="this.monthHighlightingClass[0] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[0])">August</li>
-            <li [ngClass]="this.monthHighlightingClass[1] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[1])">September</li>
-            <li [ngClass]="this.monthHighlightingClass[2] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[2])">October</li>
-            <li [ngClass]="this.monthHighlightingClass[3] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[3])">November</li>
-            <li [ngClass]="this.monthHighlightingClass[4] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[4])">December</li>
-            <li [ngClass]="this.monthHighlightingClass[5] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[5])">January</li>
-            <li [ngClass]="this.monthHighlightingClass[6] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[6])">February</li>
-            <li [ngClass]="this.monthHighlightingClass[7] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[7])">March</li>
-            <li [ngClass]="this.monthHighlightingClass[8] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[8])">April</li>
-            <li [ngClass]="this.monthHighlightingClass[9] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[9])">May</li>
-            <li [ngClass]="this.monthHighlightingClass[10] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[10])">June</li>
-            <li [ngClass]="this.monthHighlightingClass[11] ? 'selected-li' : 'unselected-li'"
-                (click)="onMonthClicked(monthNames[11])">July</li>
+            <li [ngClass]="monthMarkers[0].available ? monthMarkers[0].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[0].monthName)">August</p>
+            </li>
+            <li [ngClass]="monthMarkers[1].available ? monthMarkers[1].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[1].monthName)">September</p>
+            </li>
+            <li [ngClass]="monthMarkers[2].available ? monthMarkers[2].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[2].monthName)">October</p>
+            </li>
+            <li [ngClass]="monthMarkers[3].available ? monthMarkers[3].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[3].monthName)">November</p>
+            </li>
+            <li [ngClass]="monthMarkers[4].available ? monthMarkers[4].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[4].monthName)">December</p>
+            </li>
+            <li [ngClass]="monthMarkers[5].available ? monthMarkers[5].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[5].monthName)">January</p>
+            </li>
+            <li [ngClass]="monthMarkers[6].available ? monthMarkers[6].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[6].monthName)">February</p>
+            </li>
+            <li [ngClass]="monthMarkers[7].available ? monthMarkers[7].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[7].monthName)">March</p>
+            </li>
+            <li [ngClass]="monthMarkers[8].available ? monthMarkers[8].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[8].monthName)">April</p>
+            </li>
+            <li [ngClass]="monthMarkers[9].available ? monthMarkers[9].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[9].monthName)">May</p>
+            </li>
+            <li [ngClass]="monthMarkers[10].available ? monthMarkers[10].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[10].monthName)">June</p>
+            </li>
+            <li [ngClass]="monthMarkers[11].available ? monthMarkers[11].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+              <p (click)="onMonthClicked(monthMarkers[11].monthName)">July</p>
+            </li>
           </ul>
         </li>
       </ul>

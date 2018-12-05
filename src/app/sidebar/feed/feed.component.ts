@@ -85,8 +85,6 @@ export class FeedComponent implements AfterViewInit {
         console.log(result.first.nativeElement);
       }
     );
-    // console.log(this.sentMarker.first);
-    // console.log(this.pendingMarker.first);
     console.log('In init ' + this.markers);
     for (const marker of this.markers) {
       marker.changes.subscribe(

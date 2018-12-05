@@ -1,0 +1,61 @@
+<!--<div class="post-creation">-->
+<h1>Create a New Post</h1>
+
+  <div class="input">
+
+    <mat-form-field appearance="standard">
+      <mat-label>Post Title</mat-label>
+      <input matInput placeholder="Title">
+    </mat-form-field>
+
+    <!--<mat-form-field appearance="standard">-->
+    <!--<input matInput placeholder="Time" [ngxTimepicker]="picker">-->
+    <!--<ngx-material-timepicker #picker></ngx-material-timepicker>-->
+    <!--</mat-form-field>-->
+
+    <mat-form-field appearance="standard">
+      <mat-label>Date To Send</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+    <mat-label>Date To Send</mat-label>
+    <input matInput placeholder="Choose a date">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Pick recipient">
+        <mat-option value="middle">Middle School</mat-option>
+        <mat-option value="freshman">Freshman</mat-option>
+        <mat-option value="sophomore">Sophomore</mat-option>
+        <mat-option value="junior">Junior</mat-option>
+        <mat-option value="senior">Senior</mat-option>
+        <mat-option value="robotics">Robotics Club</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <quill-editor [style]="{height: '300px'}">
+    <div quill-editor-toolbar>
+    <span class="ql-formats">
+      <button class="ql-bold" [title]="'Bold'"></button>
+      <button class="ql-italic" [title]="'Italic'"></button>
+      <button class="ql-underline" [title]="'Underline'"></button>
+    </span>
+      <span class="ql-formats">
+      <select class="ql-align" [title]="'Aligment'">
+        <option selected></option>
+        <option value="center"></option>
+        <option value="right"></option>
+        <option value="justify"></option>
+      </select>
+      </span>
+      <span class="ql-formats">
+      <button class="ql-link" [title]="'Link'"></button>
+      <button class="ql-image" [title]="'Image'"></button>
+      <button class="ql-video" [title]="'Video'"></button>
+    </span>
+    </div>
+  </quill-editor>

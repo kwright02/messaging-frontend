@@ -10,18 +10,20 @@ import {OrderByPipe} from './sidebar/feed/orderby.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule, MatDialogModule,
+  MatCardModule, MatDatepickerModule, MatDialogModule,
   MatDividerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
-  MatListModule,
+  MatListModule, MatNativeDateModule, MatSelectModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
 import { ApprovedDialogComponent } from './sidebar/feed/approved-dialog/approved-dialog.component';
-import { CreatePostComponent } from './sidebar/feed/create-post/create-post.component';
+import { CreatePostComponent } from './sidebar/create-post/create-post.component';
 import {FormsModule} from '@angular/forms';
-import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
+import { QuillModule } from 'ngx-quill';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -40,8 +42,7 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot(),
+    QuillModule,
     MatSidenavModule,
     MatCardModule,
     MatDividerModule,
@@ -52,6 +53,11 @@ import {FroalaEditorModule, FroalaViewModule} from 'angular-froala-wysiwyg';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    NgxMaterialTimepickerModule.forRoot(),
+    OverlayModule,
   ],
   entryComponents: [
     ApprovedDialogComponent,

@@ -3,7 +3,7 @@ import { POSTS } from '../../mock-posts';
 import {Post} from '../../post';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {ApprovedDialogComponent} from './approved-dialog/approved-dialog.component';
-import {CreatePostComponent} from './create-post/create-post.component';
+import {CreatePostComponent} from '../create-post/create-post.component';
 
 
 @Component({
@@ -60,16 +60,16 @@ export class FeedComponent implements AfterViewInit {
     });
   }
 
-  openCreatePostDialog(): void {
-    const dialogRef = this.dialog.open(CreatePostComponent, {
-      width: '700px',
-      height: '600px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+  // openCreatePostDialog(): void {
+  //   const dialogRef = this.dialog.open(CreatePostComponent, {
+  //     width: '700px',
+  //     height: '800px'
+  //   });
+  //
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
 
   ngAfterViewInit() {
     this.markers = [this.augustMarker, this.septemberMarker, this.octoberMarker, this.novemberMarker,

@@ -19,9 +19,11 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import { ApprovedDialogComponent } from './sidebar/feed/approved-dialog/approved-dialog.component';
-import { CreatePostComponent } from './sidebar/feed/create-post/create-post.component';
+import { CreatePostComponent } from './sidebar/create-post/create-post.component';
 import {FormsModule} from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { QuillModule } from 'ngx-quill';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
+    NgxMaterialTimepickerModule.forRoot(),
+    OverlayModule,
   ],
   entryComponents: [
     ApprovedDialogComponent,

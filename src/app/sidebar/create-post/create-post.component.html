@@ -1,18 +1,28 @@
 <!--<div class="post-creation">-->
-<h1 mat-dialog-title>Create a New Post</h1>
+<h1>Create a New Post</h1>
 
-<mat-dialog-content>
   <div class="input">
+
     <mat-form-field appearance="standard">
       <mat-label>Post Title</mat-label>
       <input matInput placeholder="Title">
     </mat-form-field>
+
+    <!--<mat-form-field appearance="standard">-->
+    <!--<input matInput placeholder="Time" [ngxTimepicker]="picker">-->
+    <!--<ngx-material-timepicker #picker></ngx-material-timepicker>-->
+    <!--</mat-form-field>-->
 
     <mat-form-field appearance="standard">
       <mat-label>Date To Send</mat-label>
       <input matInput [matDatepicker]="picker" placeholder="Choose a date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+    <mat-label>Date To Send</mat-label>
+    <input matInput placeholder="Choose a date">
     </mat-form-field>
 
     <mat-form-field>
@@ -27,7 +37,6 @@
     </mat-form-field>
   </div>
 
-  <!--<div class="editor">-->
   <quill-editor [style]="{height: '300px'}">
     <div quill-editor-toolbar>
     <span class="ql-formats">
@@ -50,11 +59,3 @@
     </span>
     </div>
   </quill-editor>
-  <!--</div>-->
-</mat-dialog-content>
-
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button>Post</button>
-</div>
-<!--</div>-->

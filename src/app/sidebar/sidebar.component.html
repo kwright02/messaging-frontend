@@ -12,52 +12,54 @@
 
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav" disableClose = "true" [fixedInViewport]="false">
-      <ul>
-        <li class={{pendingClass}}>Pending</li>
-        <li>
-          <span class={{sentClass}}>
-            Sent
-          </span>
-          <ul>
-            <li [ngClass]="monthMarkers[0].available ? monthMarkers[0].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[0].monthName)">August</p>
-            </li>
-            <li [ngClass]="monthMarkers[1].available ? monthMarkers[1].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[1].monthName)">September</p>
-            </li>
-            <li [ngClass]="monthMarkers[2].available ? monthMarkers[2].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[2].monthName)">October</p>
-            </li>
-            <li [ngClass]="monthMarkers[3].available ? monthMarkers[3].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[3].monthName)">November</p>
-            </li>
-            <li [ngClass]="monthMarkers[4].available ? monthMarkers[4].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[4].monthName)">December</p>
-            </li>
-            <li [ngClass]="monthMarkers[5].available ? monthMarkers[5].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[5].monthName)">January</p>
-            </li>
-            <li [ngClass]="monthMarkers[6].available ? monthMarkers[6].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[6].monthName)">February</p>
-            </li>
-            <li [ngClass]="monthMarkers[7].available ? monthMarkers[7].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[7].monthName)">March</p>
-            </li>
-            <li [ngClass]="monthMarkers[8].available ? monthMarkers[8].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[8].monthName)">April</p>
-            </li>
-            <li [ngClass]="monthMarkers[9].available ? monthMarkers[9].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[9].monthName)">May</p>
-            </li>
-            <li [ngClass]="monthMarkers[10].available ? monthMarkers[10].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[10].monthName)">June</p>
-            </li>
-            <li [ngClass]="monthMarkers[11].available ? monthMarkers[11].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
-              <p (click)="onMonthClicked(monthMarkers[11].monthName)">July</p>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <div class="sidebar-content">
+        <ul>
+          <li class={{pendingClass}}>Pending</li>
+          <li>
+            <span class={{sentClass}}>
+              Sent
+            </span>
+            <ul>
+              <li [ngClass]="monthMarkers[0].available ? monthMarkers[0].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[0].monthName)">August</p>
+              </li>
+              <li [ngClass]="monthMarkers[1].available ? monthMarkers[1].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[1].monthName)">September</p>
+              </li>
+              <li [ngClass]="monthMarkers[2].available ? monthMarkers[2].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[2].monthName)">October</p>
+              </li>
+              <li [ngClass]="monthMarkers[3].available ? monthMarkers[3].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[3].monthName)">November</p>
+              </li>
+              <li [ngClass]="monthMarkers[4].available ? monthMarkers[4].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[4].monthName)">December</p>
+              </li>
+              <li [ngClass]="monthMarkers[5].available ? monthMarkers[5].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[5].monthName)">January</p>
+              </li>
+              <li [ngClass]="monthMarkers[6].available ? monthMarkers[6].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[6].monthName)">February</p>
+              </li>
+              <li [ngClass]="monthMarkers[7].available ? monthMarkers[7].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[7].monthName)">March</p>
+              </li>
+              <li [ngClass]="monthMarkers[8].available ? monthMarkers[8].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[8].monthName)">April</p>
+              </li>
+              <li [ngClass]="monthMarkers[9].available ? monthMarkers[9].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[9].monthName)">May</p>
+              </li>
+              <li [ngClass]="monthMarkers[10].available ? monthMarkers[10].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[10].monthName)">June</p>
+              </li>
+              <li [ngClass]="monthMarkers[11].available ? monthMarkers[11].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">
+                <p (click)="onMonthClicked(monthMarkers[11].monthName)">July</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </mat-sidenav>
     <mat-sidenav-content class="main-content" (scroll)="checkScroll()" #feedContainer>
       <div class="fab-container">

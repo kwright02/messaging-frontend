@@ -1,0 +1,12 @@
+  <div class="fab-container">
+    <button mat-fab (click)="show = !show">{{show ? 'hide' : 'show'}}
+      <i class="material-icons">add</i>
+    </button>
+  </div>
+
+<div *ngIf = "show; else elseBlock">
+  <app-create-post></app-create-post>
+</div>
+<ng-template class="main-post" #elseBlock>
+  <app-feed #feed></app-feed>
+</ng-template>

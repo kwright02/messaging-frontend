@@ -60,17 +60,6 @@ export class FeedComponent implements AfterViewInit {
     });
   }
 
-  // openCreatePostDialog(): void {
-  //   const dialogRef = this.dialog.open(CreatePostComponent, {
-  //     width: '700px',
-  //     height: '800px'
-  //   });
-  //
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
-
   ngAfterViewInit() {
     this.markers = [this.augustMarker, this.septemberMarker, this.octoberMarker, this.novemberMarker,
                     this.decemberMarker, this.januaryMarker, this.februaryMarker, this.marchMarker,

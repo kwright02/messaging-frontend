@@ -65,11 +65,6 @@
       </div>
     </mat-sidenav>
     <mat-sidenav-content class="main-content" (scroll)="checkScroll()" #feedContainer>
-      <div class="fab-container">
-        <button mat-fab (click)="openCreatePostDialog()">
-          <i class="material-icons">add</i>
-        </button>
-      </div>
-      <app-feed #feed></app-feed>
+        <app-fab></app-fab>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+</mat-sidenav-container>

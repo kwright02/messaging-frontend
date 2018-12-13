@@ -1,4 +1,4 @@
-<!--<div class="post-creation">-->
+<div class="post-creation">
 <h1>Create a New Post</h1>
 
   <div class="input">
@@ -8,21 +8,11 @@
       <input matInput placeholder="Title">
     </mat-form-field>
 
-    <!--<mat-form-field appearance="standard">-->
-    <!--<input matInput placeholder="Time" [ngxTimepicker]="picker">-->
-    <!--<ngx-material-timepicker #picker></ngx-material-timepicker>-->
-    <!--</mat-form-field>-->
-
     <mat-form-field appearance="standard">
       <mat-label>Date To Send</mat-label>
       <input matInput [matDatepicker]="picker" placeholder="Choose a date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field appearance="standard">
-    <mat-label>Date To Send</mat-label>
-    <input matInput placeholder="Choose a date">
     </mat-form-field>
 
     <mat-form-field>
@@ -37,7 +27,17 @@
     </mat-form-field>
   </div>
 
-  <quill-editor [style]="{height: '300px'}">
+  <div class="editable-dial-example">
+    <mat-form-field appearance="standard">
+    <mat-label>Pick Time</mat-label>
+    <input matInput placeholder="Time"
+           [ngxTimepicker]="editableDial" readonly>
+    <ngx-material-timepicker #editableDial [enableKeyboardInput]="true"></ngx-material-timepicker>
+    </mat-form-field>
+  </div>
+
+
+  <quill-editor [style]="{height: '250px'}">
     <div quill-editor-toolbar>
     <span class="ql-formats">
       <button class="ql-bold" [title]="'Bold'"></button>
@@ -59,3 +59,4 @@
     </span>
     </div>
   </quill-editor>
+</div>

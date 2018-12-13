@@ -24,6 +24,7 @@ import {FormsModule} from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { FabComponent } from './sidebar/fab/fab.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     ApprovedDialogComponent,
     CreatePostComponent,
     FeedComponent,
-    OrderByPipe
+    OrderByPipe,
+    FabComponent
   ],
   imports: [
     HttpClientModule,

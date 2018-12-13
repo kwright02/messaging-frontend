@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import {MonthMarker} from './month-marker';
 
 @Component({
@@ -6,7 +6,7 @@ import {MonthMarker} from './month-marker';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements AfterViewInit {
+export class SidebarComponent {
 
   constructor() {}
 
@@ -33,20 +33,6 @@ export class SidebarComponent implements AfterViewInit {
   sentClass = 'unselected-month';
 
   checkScroll() {
-    this.updateSidebar();
-  }
-  ngAfterViewInit() {
-    this.updateSidebar();
-  }
-  onMonthClicked(monthName) {
-    for (let i = 0; i < 12; i++) {
-      if (monthName === this.monthMarkers[i].monthName && this.feedContent.markers[i].first != null) {
-        this.feedContent.markers[i].first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-        break;
-      }
-    }
-  }
-  updateSidebar() {
     this.pendingClass  = 'selected-month';
     this.sentClass     = 'unselected-month';
 
@@ -62,6 +48,15 @@ export class SidebarComponent implements AfterViewInit {
         this.monthMarkers[i].selected = true;
         this.pendingClass  = 'unselected-month';
         this.sentClass     = 'selected-month';
+        break;
+      }
+    }
+  }
+
+  onMonthClicked(monthName) {
+    for (let i = 0; i < 12; i++) {
+      if (monthName === this.monthMarkers[i].monthName && this.feedContent.markers[i].first != null) {
+        this.feedContent.markers[i].first.nativeElement.scrollIntoView({ behavior: 'smooth'});
         break;
       }
     }

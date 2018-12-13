@@ -1,6 +1,14 @@
-<body>
-  <p>
-    Login
-  </p>
-  <a routerLink="/main">Go to main</a>
-</body>
+<div class="centering-container">
+  <div class="login-container">
+    <mat-form-field>
+      <input matInput placeholder="Username" [type]="'text'">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+
+    <button mat-button routerLink="/main">Login</button>
+  </div>
+</div>

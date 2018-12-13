@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-fab',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class FabComponent implements OnInit {
 
   constructor() { }
+
+  @ViewChild('feed') feedContent;
 
   ngOnInit() {
   }

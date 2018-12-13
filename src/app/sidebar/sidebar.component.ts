@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MonthMarker} from './month-marker';
 
 @Component({
@@ -6,11 +6,11 @@ import {MonthMarker} from './month-marker';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent implements AfterViewInit {
 
   constructor() {}
 
-  FIELD_TOP = 550;
+  FEED_TRANSITION_POINT = 550;
 
   monthMarkers: MonthMarker[] = [
     {available: false, selected: false, monthName: 'August'},
@@ -26,25 +26,33 @@ export class SidebarComponent {
     {available: false, selected: false, monthName: 'June'},
     {available: false, selected: false, monthName: 'July'}];
 
-  @ViewChild('feed')            feedContent;
+  @ViewChild('fab')            fabContent;
   @ViewChild('feedContainer')  feedScrollingContainer;
 
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
   checkScroll() {
+    this.updateSidebar();
+  }
+
+  ngAfterViewInit() {
+    this.updateSidebar();
+  }
+
+  updateSidebar() {
     this.pendingClass  = 'selected-month';
     this.sentClass     = 'unselected-month';
 
     for (let i = 0; i < 12; i++) {
       this.monthMarkers[i].selected = false;
-      if (this.feedContent.markers[i].first != null) {
+      if (this.fabContent.feedContent.markers[i].first != null) {
         this.monthMarkers[i].available = true;
       }
     }
     for (let i = 11; i >= 0; i--) {
-      if (this.feedContent.markers[i].first != null &&
-        this.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top <= this.FIELD_TOP) {
+      if (this.fabContent.feedContent.markers[i].first != null &&
+        this.fabContent.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top <= this.FEED_TRANSITION_POINT) {
         this.monthMarkers[i].selected = true;
         this.pendingClass  = 'unselected-month';
         this.sentClass     = 'selected-month';
@@ -55,8 +63,8 @@ export class SidebarComponent {
 
   onMonthClicked(monthName) {
     for (let i = 0; i < 12; i++) {
-      if (monthName === this.monthMarkers[i].monthName && this.feedContent.markers[i].first != null) {
-        this.feedContent.markers[i].first.nativeElement.scrollIntoView({ behavior: 'smooth'});
+      if (monthName === this.monthMarkers[i].monthName && this.fabContent.feedContent.markers[i].first != null) {
+        this.fabContent.feedContent.markers[i].first.nativeElement.scrollIntoView({ behavior: 'smooth'});
         break;
       }
     }

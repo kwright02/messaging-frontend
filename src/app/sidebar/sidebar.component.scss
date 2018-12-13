@@ -50,7 +50,7 @@ ul {
 
 .selected-month {
   margin-bottom: 15px;
-  text-decoration: underline;
+  font-weight: bold;
   opacity: 1;
   cursor: pointer;
 }
@@ -60,4 +60,8 @@ ul {
   text-decoration: none;
   opacity: 0.5;
   cursor: default;
+}
+
+.sidebar-content {
+  padding: 120px 0;
 }

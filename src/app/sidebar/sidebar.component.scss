@@ -70,9 +70,15 @@ ul {
   cursor: default;
 }
 
-//.sidebar-content {
-//  display: flex;
-//}
+.sidebar-content {
+  transform: translate(0%, -50%);
+  position: absolute;
+  top: 50%;
+  padding: 5px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
 
 .exit-button {
   margin-left: 18px;

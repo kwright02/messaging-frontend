@@ -63,7 +63,13 @@ ul {
 }
 
 .sidebar-content {
-  padding: 120px 0;
+  transform: translate(0%, -50%);
+  position: absolute;
+  top: 50%;
+  padding: 5px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .exit-button {

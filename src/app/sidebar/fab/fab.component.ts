@@ -1,21 +1,50 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {speedDialFabAnimations} from './fab.animations';
 
 @Component({
   selector: 'app-fab',
   templateUrl: './fab.component.html',
-  styleUrls: ['./fab.component.scss']
+  styleUrls: ['./fab.component.scss'],
+  animations: speedDialFabAnimations
 })
-export class FabComponent implements OnInit {
+export class FabComponent {
+  fabButtons = [
+    {
+      icon: 'timeline'
+    },
+    {
+      icon: 'view_headline'
+    },
+    {
+      icon: 'room'
+    },
+    {
+      icon: 'lightbulb_outline'
+    },
+    {
+      icon: 'lock'
+    }
+  ];
+  buttons = [];
+  fabTogglerState = 'inactive';
 
   constructor() { }
 
-  @ViewChild('feed') feedContent;
-
-  ngOnInit() {
+  showItems() {
+    this.fabTogglerState = 'active';
+    this.buttons = this.fabButtons;
   }
 
-}
+  hideItems() {
+    this.fabTogglerState = 'inactive';
+    this.buttons = [];
+  }
 
-class NgIfSimple {
-  show: false;
+  onToggleFab() {
+    this.buttons.length ? this.hideItems() : this.showItems();
+  }
 }
+//
+// class NgIfSimple {
+//   show: false;
+// }

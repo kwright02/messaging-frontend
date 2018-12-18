@@ -16,10 +16,12 @@
     <mat-sidenav #sidenav mode="side" opened class="example-sidenav" disableClose = "true" [fixedInViewport]="false">
       <div class="sidebar-content">
         <ul>
-          <li class={{pendingClass}}>Pending</li>
+          <li class={{pendingClass}}>
+            <p (click)="onMonthClicked('Pending')">Pending</p>
+          </li>
           <li>
             <span class={{sentClass}}>
-              Sent
+              <p (click)="onMonthClicked('Sent')">Sent</p>
             </span>
             <ul>
               <li [ngClass]="monthMarkers[0].available ? monthMarkers[0].selected ? 'selected-month' : 'unselected-month' : 'unavailable-month'">

@@ -68,5 +68,11 @@ export class SidebarComponent implements AfterViewInit {
         break;
       }
     }
+    if (monthName === 'Sent' && this.fabContent.feedContent.sentMarker.first != null) {
+      this.fabContent.feedContent.sentMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
+    }
+    if (monthName === 'Pending' && this.fabContent.feedContent.pendingMarker.first != null) {
+      this.fabContent.feedContent.pendingMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
+    }
   }
 }

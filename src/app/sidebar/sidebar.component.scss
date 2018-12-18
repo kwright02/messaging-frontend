@@ -4,10 +4,6 @@
   flex: 1 1 auto
 }
 
-//.mat-focused .placeholder {
-//  color: #FFFFFF;
-//}
-
 .example-container {
   position: absolute;
   top: 60px;
@@ -29,6 +25,7 @@
   width: 200px;
   background-color: mat-color($messaging-app-accent);
 }
+
 .sidebar-content {
   height: 100%;
   width: 100%;

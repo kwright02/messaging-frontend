@@ -9,31 +9,27 @@ import {speedDialFabAnimations} from './fab.animations';
 })
 export class FabComponent {
   fabTogglerState = 'inactive';
-  showCreationPost = false;
+  isCreationPostVisible = false;
 
   @ViewChild('feed') feedContent;
 
   constructor() { }
 
-  showItems() {
+  showCreate() {
     this.fabTogglerState = 'active';
-    this.showCreationPost = true;
+    this.isCreationPostVisible = true;
   }
 
-  hideItems() {
+  showFeed() {
     this.fabTogglerState = 'inactive';
-    this.showCreationPost = false;
+    this.isCreationPostVisible = false;
   }
 
   onToggleFab() {
-    if (this.showCreationPost) {
-      this.hideItems();
+    if (this.isCreationPostVisible) {
+      this.showFeed();
     } else {
-      this.showItems();
+      this.showCreate();
     }
   }
-}
-
-class NgIfSimple {
-  show: false;
 }

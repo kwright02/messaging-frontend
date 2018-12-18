@@ -25,6 +25,7 @@ import { QuillModule } from 'ngx-quill';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { FabComponent } from './sidebar/fab/fab.component';
+import { LeavepostcreationdialogComponent } from './sidebar/create-post/leavepostcreationdialog/leavepostcreationdialog.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FabComponent } from './sidebar/fab/fab.component';
     CreatePostComponent,
     FeedComponent,
     OrderByPipe,
-    FabComponent
+    FabComponent,
+    LeavepostcreationdialogComponent
   ],
   imports: [
     HttpClientModule,

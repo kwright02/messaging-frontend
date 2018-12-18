@@ -45,3 +45,32 @@ $messaging-app-theme: mat-light-theme($messaging-app-primary, $messaging-app-acc
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.timepicker {
+
+  .timepicker__header {
+    background-color: mat-color($messaging-app-primary) !important;
+  }
+
+  .clock-face__clock-hand {
+    background-color: mat-color($messaging-app-primary) !important;
+
+    &::after {
+      background-color: mat-color($messaging-app-primary) !important;
+    }
+
+    &::before {
+      border-color: mat-color($messaging-app-primary) !important;
+    }
+  }
+
+  .clock-face__number {
+    > span.active {
+      background-color: mat-color($messaging-app-primary) !important;
+    }
+  }
+
+  button:not(.timepicker-dial__item) {
+    color: mat-color($messaging-app-primary) !important;
+  }
+}

@@ -8,43 +8,32 @@ import {speedDialFabAnimations} from './fab.animations';
   animations: speedDialFabAnimations
 })
 export class FabComponent {
-  fabButtons = [
-    {
-      icon: 'timeline'
-    },
-    {
-      icon: 'view_headline'
-    },
-    {
-      icon: 'room'
-    },
-    {
-      icon: 'lightbulb_outline'
-    },
-    {
-      icon: 'lock'
-    }
-  ];
-  buttons = [];
   fabTogglerState = 'inactive';
+  showCreationPost = false;
+
+  @ViewChild('feed') feedContent;
 
   constructor() { }
 
   showItems() {
     this.fabTogglerState = 'active';
-    this.buttons = this.fabButtons;
+    this.showCreationPost = true;
   }
 
   hideItems() {
     this.fabTogglerState = 'inactive';
-    this.buttons = [];
+    this.showCreationPost = false;
   }
 
   onToggleFab() {
-    this.buttons.length ? this.hideItems() : this.showItems();
+    if (this.showCreationPost) {
+      this.hideItems();
+    } else {
+      this.showItems();
+    }
   }
 }
-//
-// class NgIfSimple {
-//   show: false;
-// }
+
+class NgIfSimple {
+  show: false;
+}

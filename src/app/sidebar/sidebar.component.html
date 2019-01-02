@@ -1,9 +1,10 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
+    <p class="toolbar-text">Pattonville Messaging Service</p>
     <span class="fill-space"></span>
     <form>
       <mat-form-field floatLabel="never">
-        <input matInput placeholder="Search">
+        <input matInput placeholder="Search" #searchBar>
       </mat-form-field>
     </form>
     <button mat-icon-button routerLink="/login" class="exit-button">

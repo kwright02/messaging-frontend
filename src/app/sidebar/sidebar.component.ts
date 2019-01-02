@@ -29,6 +29,8 @@ export class SidebarComponent implements AfterViewInit {
   @ViewChild('fab')            fabContent;
   @ViewChild('feedContainer')  feedScrollingContainer;
 
+  @ViewChild('searchBar')      searchBar;
+
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 

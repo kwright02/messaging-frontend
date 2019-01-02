@@ -84,3 +84,9 @@ ul {
 .exit-button {
   margin-left: 18px;
 }
+
+.toolbar-text {
+  font-size: $messaging-app-font-size-heavy;
+  color: $messaging-app-text;
+  font-weight: $messaging-app-font-weight;
+}

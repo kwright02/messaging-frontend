@@ -20,13 +20,7 @@ export class FeedComponent implements AfterViewInit {
   posts = POSTS;
 
   constructor(public dialog: MatDialog) {
-    for (const post of this.posts) {
-      if (post.pending) {
-        this.pendingPosts.push(post);
-      } else {
-        this.sentPosts.push(post);
-      }
-    }
+    this.updatePosts();
   }
 
   pendingPosts: Post[] = [];
@@ -82,6 +76,16 @@ export class FeedComponent implements AfterViewInit {
           console.log(result.first.nativeElement);
         }
       );
+    }
+  }
+
+  updatePosts() {
+    for (const post of this.posts) {
+      if (post.pending) {
+        this.pendingPosts.push(post);
+      } else {
+        this.sentPosts.push(post);
+      }
     }
   }
 }

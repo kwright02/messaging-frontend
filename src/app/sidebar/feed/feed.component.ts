@@ -19,11 +19,10 @@ export class FeedComponent implements AfterViewInit {
 
   posts = POSTS;
 
-  constructor(public dialog: MatDialog) {
-    this.updatePosts();
-  }
+  panelOpenState = true;
 
   pendingPosts: Post[] = [];
+
   sentPosts:    Post[] = [];
 
   @ViewChildren('pendingMarker') pendingMarker:     QueryList<any>;
@@ -43,6 +42,10 @@ export class FeedComponent implements AfterViewInit {
   @ViewChildren('julyMarker')      julyMarker:      QueryList<any>;
 
   markers: QueryList<any>[];
+
+  constructor(public dialog: MatDialog) {
+    this.updatePosts();
+  }
 
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(ApprovedDialogComponent, {

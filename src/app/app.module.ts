@@ -26,6 +26,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { FabComponent } from './sidebar/fab/fab.component';
 import { ExitPostCreationDialogComponent } from './sidebar/exit-post-creation-dialog/exit-post-creation-dialog.component';
+import { PostPanelComponent } from './sidebar/feed/post-panel/post-panel.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ExitPostCreationDialogComponent } from './sidebar/exit-post-creation-di
     FeedComponent,
     OrderByPipe,
     FabComponent,
-    ExitPostCreationDialogComponent
+    ExitPostCreationDialogComponent,
+    PostPanelComponent
   ],
   imports: [
     HttpClientModule,

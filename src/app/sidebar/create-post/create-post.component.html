@@ -15,16 +15,46 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Pick recipient">
-        <mat-option value="middle">Middle School</mat-option>
-        <mat-option value="freshman">Freshman</mat-option>
-        <mat-option value="sophomore">Sophomore</mat-option>
-        <mat-option value="junior">Junior</mat-option>
-        <mat-option value="senior">Senior</mat-option>
-        <mat-option value="robotics">Robotics Club</mat-option>
-      </mat-select>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList>
+        <mat-chip
+          *ngFor="let testGroup of allGroups"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(fruit)">
+          {{fruit}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New fruit..."
+          #fruitInput
+          [formControl]="fruitCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+          {{fruit}}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
+
+
+
+
+    <!--<mat-form-field>-->
+      <!--<mat-select placeholder="Pick recipient">-->
+        <!--<mat-option value="middle">Middle School</mat-option>-->
+        <!--<mat-option value="freshman">Freshman</mat-option>-->
+        <!--<mat-option value="sophomore">Sophomore</mat-option>-->
+        <!--<mat-option value="junior">Junior</mat-option>-->
+        <!--<mat-option value="senior">Senior</mat-option>-->
+        <!--<mat-option value="robotics">Robotics Club</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-form-field>-->
   </div>
 
   <div class="editable-dial-example">

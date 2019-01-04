@@ -10,22 +10,22 @@ import {OrderByPipe} from './sidebar/feed/orderby.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule, MatDatepickerModule, MatDialogModule,
+  MatCardModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
   MatDividerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule, MatNativeDateModule, MatSelectModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule, MatAutocompleteModule, MatExpansionModule, MatTooltipModule
 } from '@angular/material';
 import { ApprovedDialogComponent } from './sidebar/feed/approved-dialog/approved-dialog.component';
 import { CreatePostComponent } from './sidebar/create-post/create-post.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { FabComponent } from './sidebar/fab/fab.component';
-import { LeavepostcreationdialogComponent } from './sidebar/create-post/leavepostcreationdialog/leavepostcreationdialog.component';
+import { ExitPostCreationDialogComponent } from './sidebar/exit-post-creation-dialog/exit-post-creation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -38,12 +38,13 @@ import { LeavepostcreationdialogComponent } from './sidebar/create-post/leavepos
     FeedComponent,
     OrderByPipe,
     FabComponent,
-    LeavepostcreationdialogComponent
+    ExitPostCreationDialogComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     QuillModule,
@@ -62,6 +63,10 @@ import { LeavepostcreationdialogComponent } from './sidebar/create-post/leavepos
     MatSelectModule,
     NgxMaterialTimepickerModule.forRoot(),
     OverlayModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatExpansionModule,
+    MatTooltipModule
   ],
   entryComponents: [
     ApprovedDialogComponent,

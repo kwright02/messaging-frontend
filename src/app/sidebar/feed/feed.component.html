@@ -5,7 +5,7 @@
 </div>
 
 <mat-list>
-  <app-post-panel *ngFor="let post of pendingPosts" post="post"></app-post-panel>
+  <app-post-panel *ngFor="let post of pendingPosts" [post]="post"></app-post-panel>
 </mat-list>
 
 <div class="heading-bounds" #sentMarker>

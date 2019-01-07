@@ -4,7 +4,7 @@
     <span class="fill-space"></span>
     <form>
       <mat-form-field floatLabel="never">
-        <input matInput placeholder="Search" #searchBar>
+        <input matInput type="text" placeholder="Search" (keyup)="fabContent.feedContent.updatePostsWithSearch(searchBar.value)" #searchBar>
       </mat-form-field>
     </form>
     <button mat-icon-button routerLink="/login" class="exit-button">

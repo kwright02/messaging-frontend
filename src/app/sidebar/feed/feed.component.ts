@@ -71,13 +71,27 @@ export class FeedComponent implements AfterViewInit {
       );
     }
   }
-
   updatePosts() {
+    this.pendingPosts = [];
+    this.sentPosts = [];
     for (const post of this.posts) {
       if (post.pending) {
         this.pendingPosts.push(post);
       } else {
         this.sentPosts.push(post);
+      }
+    }
+  }
+  updatePostsWithSearch(search: string) {
+    this.pendingPosts = [];
+    this.sentPosts = [];
+    for (const post of this.posts) {
+      if (post.title.toLowerCase().includes(search.toLowerCase())) {
+        if (post.pending) {
+          this.pendingPosts.push(post);
+        } else {
+          this.sentPosts.push(post);
+        }
       }
     }
   }

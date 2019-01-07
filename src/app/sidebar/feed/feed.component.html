@@ -1,37 +1,12 @@
-
-
+<div class="container">
+  <div class="feed">
 <div class="heading-bounds" #pendingMarker>
   <p>Pending</p>
   <mat-divider></mat-divider>
 </div>
 
-<mat-list *ngFor="let post of pendingPosts">
-
-    <div class="card-bounds">
-        <mat-card>
-          <mat-card-title>{{post.title}}</mat-card-title>
-          <mat-card-subtitle>{{post.id}}</mat-card-subtitle>
-          <mat-card-content>
-            SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
-            SENIOR HOODIES will arrive on Monday, October 22. Hoodies will be delivered directly to students. COME SEE THE
-            FALL PLAY, PLAY ON!, this Thursday, Friday, and Saturday (October 18, 19, 20) at 7pm. Will the company of the
-            play within the play, Murder Most Foul, get ready for their show in time OR will chaos ensue? Tickets can be
-            purchased from Ms. Corvera in A213 or at the Box Office starting one hour before each show. Students and Children
-            are $4 and Adults are $6. ATTENDANCE BATTLE OF THE CLASSES: 3 classes over the 90/90 attendance goal and 90.2%
-            overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
-            1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>APPROVE</button>
-            <button mat-button>DENY</button>
-            <div class="edit-icon">
-              <button mat-icon-button>
-                <mat-icon>edit</mat-icon>
-              </button>
-            </div>
-          </mat-card-actions>
-        </mat-card>
-    </div>
+<mat-list>
+  <app-post-panel *ngFor="let post of pendingPosts" [post]="post"></app-post-panel>
 </mat-list>
 
 <div class="heading-bounds" #sentMarker>
@@ -89,27 +64,58 @@
     <div class="month-heading-bounds" #julyMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
   </ng-template>
 
-    <div class="card-bounds">
-        <mat-card>
-          <mat-card-title>{{post.title}}</mat-card-title>
-          <mat-card-subtitle>{{post.id}}</mat-card-subtitle>
-          <mat-card-content>
-            SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
-            SENIOR HOODIES will arrive on Monday, October 22. Hoodies will be delivered directly to students. COME SEE THE
-            FALL PLAY, PLAY ON!, this Thursday, Friday, and Saturday (October 18, 19, 20) at 7pm. Will the company of the
-            play within the play, Murder Most Foul, get ready for their show in time OR will chaos ensue? Tickets can be
-            purchased from Ms. Corvera in A213 or at the Box Office starting one hour before each show. Students and Children
-            are $4 and Adults are $6. ATTENDANCE BATTLE OF THE CLASSES: 3 classes over the 90/90 attendance goal and 90.2%
-            overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
-            1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%
-          </mat-card-content>
-          <mat-card-actions>
-            <div class="edit-icon">
-              <button mat-icon-button (click)="openDeleteDialog()">
-                <mat-icon>delete</mat-icon>
-              </button>
-            </div>
-          </mat-card-actions>
-        </mat-card>
-    </div>
+  <div class="card-bounds">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{post.title}}</mat-panel-title>
+        <mat-panel-description>
+          {{post.id}}
+        </mat-panel-description>
+        <mat-icon matTooltip="Sent to: All high schoolers">people_outline</mat-icon>
+      </mat-expansion-panel-header>
+
+      <p> SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
+        SENIOR HOODIES will arrive on Monday, October 22. Hoodies will be delivered directly to students. COME SEE THE
+        FALL PLAY, PLAY ON!, this Thursday, Friday, and Saturday (October 18, 19, 20) at 7pm. Will the company of the
+        play within the play, Murder Most Foul, get ready for their show in time OR will chaos ensue? Tickets can be
+        purchased from Ms. Corvera in A213 or at the Box Office starting one hour before each show. Students and Children
+        are $4 and Adults are $6. ATTENDANCE BATTLE OF THE CLASSES: 3 classes over the 90/90 attendance goal and 90.2%
+        overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
+        1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8% </p>
+
+      <div class="edit-icon">
+        <button mat-icon-button (click)="openDeleteDialog()">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+    </mat-expansion-panel>
+  </div>
+
+
+    <!--<div class="card-bounds">-->
+        <!--<mat-card>-->
+          <!--<mat-card-title>{{post.title}}</mat-card-title>-->
+          <!--<mat-card-subtitle>{{post.id}}</mat-card-subtitle>-->
+          <!--<mat-card-content>-->
+            <!--SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.-->
+            <!--SENIOR HOODIES will arrive on Monday, October 22. Hoodies will be delivered directly to students. COME SEE THE-->
+            <!--FALL PLAY, PLAY ON!, this Thursday, Friday, and Saturday (October 18, 19, 20) at 7pm. Will the company of the-->
+            <!--play within the play, Murder Most Foul, get ready for their show in time OR will chaos ensue? Tickets can be-->
+            <!--purchased from Ms. Corvera in A213 or at the Box Office starting one hour before each show. Students and Children-->
+            <!--are $4 and Adults are $6. ATTENDANCE BATTLE OF THE CLASSES: 3 classes over the 90/90 attendance goal and 90.2%-->
+            <!--overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.-->
+            <!--1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8%-->
+          <!--</mat-card-content>-->
+          <!--<mat-card-actions>-->
+            <!--<div class="edit-icon">-->
+              <!--<button mat-icon-button (click)="openDeleteDialog()">-->
+                <!--<mat-icon>delete</mat-icon>-->
+              <!--</button>-->
+            <!--</div>-->
+          <!--</mat-card-actions>-->
+        <!--</mat-card>-->
+    <!--</div>-->
 </mat-list>
+  </div>
+</div>

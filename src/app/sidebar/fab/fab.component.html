@@ -1,0 +1,13 @@
+<div class="fab-container">
+  <button mat-fab class="fab-toggler"
+          (click)="onToggleFab()">
+    <i class="material-icons" [@fabToggler]="{value: fabTogglerState}">add</i> <!-- Animation here -->
+  </button>
+</div>
+
+<div *ngIf = "isCreationPostVisible; else elseBlock">
+  <app-create-post></app-create-post>
+</div>
+<ng-template class="main-post" #elseBlock>
+  <app-feed #feed></app-feed>
+</ng-template>

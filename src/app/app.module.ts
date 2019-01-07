@@ -10,20 +10,23 @@ import {OrderByPipe} from './sidebar/feed/orderby.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatCardModule, MatDatepickerModule, MatDialogModule,
+  MatCardModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
   MatDividerModule,
   MatFormFieldModule, MatIconModule,
   MatInputModule,
   MatListModule, MatNativeDateModule, MatSelectModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule, MatAutocompleteModule, MatExpansionModule, MatTooltipModule
 } from '@angular/material';
 import { ApprovedDialogComponent } from './sidebar/feed/approved-dialog/approved-dialog.component';
 import { CreatePostComponent } from './sidebar/create-post/create-post.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { FabComponent } from './sidebar/fab/fab.component';
+import { ExitPostCreationDialogComponent } from './sidebar/exit-post-creation-dialog/exit-post-creation-dialog.component';
+import { PostPanelComponent } from './sidebar/feed/post-panel/post-panel.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +37,16 @@ import {OverlayModule} from '@angular/cdk/overlay';
     ApprovedDialogComponent,
     CreatePostComponent,
     FeedComponent,
-    OrderByPipe
+    OrderByPipe,
+    FabComponent,
+    ExitPostCreationDialogComponent,
+    PostPanelComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     QuillModule,
@@ -58,6 +65,10 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatSelectModule,
     NgxMaterialTimepickerModule.forRoot(),
     OverlayModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatExpansionModule,
+    MatTooltipModule
   ],
   entryComponents: [
     ApprovedDialogComponent,

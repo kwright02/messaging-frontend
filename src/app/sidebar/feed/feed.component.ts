@@ -19,17 +19,10 @@ export class FeedComponent implements AfterViewInit {
 
   posts = POSTS;
 
-  constructor(public dialog: MatDialog) {
-    for (const post of this.posts) {
-      if (post.pending) {
-        this.pendingPosts.push(post);
-      } else {
-        this.sentPosts.push(post);
-      }
-    }
-  }
+  panelOpenState = true;
 
   pendingPosts: Post[] = [];
+
   sentPosts:    Post[] = [];
 
   @ViewChildren('pendingMarker') pendingMarker:     QueryList<any>;
@@ -50,26 +43,9 @@ export class FeedComponent implements AfterViewInit {
 
   markers: QueryList<any>[];
 
-  openDeleteDialog(): void {
-    const dialogRef = this.dialog.open(ApprovedDialogComponent, {
-      width: '250px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  constructor(public dialog: MatDialog) {
+    this.updatePosts();
   }
-
-  // openCreatePostDialog(): void {
-  //   const dialogRef = this.dialog.open(CreatePostComponent, {
-  //     width: '700px',
-  //     height: '800px'
-  //   });
-  //
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
 
   ngAfterViewInit() {
     this.markers = [this.augustMarker, this.septemberMarker, this.octoberMarker, this.novemberMarker,
@@ -86,8 +62,6 @@ export class FeedComponent implements AfterViewInit {
         console.log(result.first.nativeElement);
       }
     );
-    // console.log(this.sentMarker.first);
-    // console.log(this.pendingMarker.first);
     console.log('In init ' + this.markers);
     for (const marker of this.markers) {
       marker.changes.subscribe(
@@ -95,6 +69,30 @@ export class FeedComponent implements AfterViewInit {
           console.log(result.first.nativeElement);
         }
       );
+    }
+  }
+  updatePosts() {
+    this.pendingPosts = [];
+    this.sentPosts = [];
+    for (const post of this.posts) {
+      if (post.pending) {
+        this.pendingPosts.push(post);
+      } else {
+        this.sentPosts.push(post);
+      }
+    }
+  }
+  updatePostsWithSearch(search: string) {
+    this.pendingPosts = [];
+    this.sentPosts = [];
+    for (const post of this.posts) {
+      if (post.title.toLowerCase().includes(search.toLowerCase())) {
+        if (post.pending) {
+          this.pendingPosts.push(post);
+        } else {
+          this.sentPosts.push(post);
+        }
+      }
     }
   }
 }

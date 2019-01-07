@@ -1,17 +1,14 @@
-@import '../../../styles';
+@import '../../../../styles';
 
-.container{
-  display: grid;
-  grid-template-columns: [left-margin] 1fr [feed] 80% [right-margin] 2fr;
-}
-
-.feed {
-  grid-area: feed;
+.card-bounds {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .heading-bounds {
   color: gray;
   font-size: $messaging-app-font-size-heavy;
+  margin-left: 40px;
 }
 
 .month-heading-bounds {
@@ -26,6 +23,7 @@
     align-self: flex-end;
   }
 }
+
 .example-headers-align .mat-expansion-panel-header-title,
 .example-headers-align .mat-expansion-panel-header-description {
   flex-basis: 0;
@@ -42,13 +40,11 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .test-contianer {
   display:flex;
   flex-direction: column;
   width: 100%;
 }
-
 .teaser-text {
   color: #777777;
 }

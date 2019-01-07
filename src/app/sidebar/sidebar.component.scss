@@ -7,20 +7,14 @@
 .example-container {
   position: absolute;
   top: 60px;
-  bottom: 0%;
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
 }
 
-.fab-container {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  z-index: 100;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+.main-content {
+  width: 100%;
 }
 
 .example-sidenav {
@@ -29,11 +23,16 @@
   align-items: center;
   justify-content: center;
   width: 200px;
-  background-color: mat-color($messaging-app-accent);
+  background-color: mat-color($messaging-app-primary);
 }
 
-.main-content{
-
+.sidebar-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 ul {
@@ -44,12 +43,50 @@ ul {
   font-weight: $messaging-app-font-weight;
 }
 
-.unselected-li {
+.unselected-month {
   margin-bottom: 15px;
   text-decoration: none;
+  opacity: 0.9;
+  cursor: pointer;
 }
 
-.selected-li {
+.unselected-month:hover {
   margin-bottom: 15px;
-  text-decoration: underline;
+  text-decoration: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.selected-month {
+  margin-bottom: 15px;
+  font-weight: bold;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.unavailable-month {
+  margin-bottom: 15px;
+  text-decoration: none;
+  opacity: 0.5;
+  cursor: default;
+}
+
+.sidebar-content {
+  transform: translate(0%, -50%);
+  position: absolute;
+  top: 50%;
+  padding: 5px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.exit-button {
+  margin-left: 18px;
+}
+
+.toolbar-text {
+  font-size: $messaging-app-font-size-heavy;
+  color: $messaging-app-text;
+  font-weight: $messaging-app-font-weight;
 }

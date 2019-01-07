@@ -1,4 +1,4 @@
-<!--<div class="post-creation">-->
+<div class="post-creation">
 <h1>Create a New Post</h1>
 
   <div class="input">
@@ -8,11 +8,6 @@
       <input matInput placeholder="Title">
     </mat-form-field>
 
-    <!--<mat-form-field appearance="standard">-->
-    <!--<input matInput placeholder="Time" [ngxTimepicker]="picker">-->
-    <!--<ngx-material-timepicker #picker></ngx-material-timepicker>-->
-    <!--</mat-form-field>-->
-
     <mat-form-field appearance="standard">
       <mat-label>Date To Send</mat-label>
       <input matInput [matDatepicker]="picker" placeholder="Choose a date">
@@ -20,24 +15,59 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field appearance="standard">
-    <mat-label>Date To Send</mat-label>
-    <input matInput placeholder="Choose a date">
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList>
+        <mat-chip
+          *ngFor="let testGroup of allGroups"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(fruit)">
+          {{fruit}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New fruit..."
+          #fruitInput
+          [formControl]="fruitCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+          {{fruit}}
+        </mat-option>
+      </mat-autocomplete>
     </mat-form-field>
 
-    <mat-form-field>
-      <mat-select placeholder="Pick recipient">
-        <mat-option value="middle">Middle School</mat-option>
-        <mat-option value="freshman">Freshman</mat-option>
-        <mat-option value="sophomore">Sophomore</mat-option>
-        <mat-option value="junior">Junior</mat-option>
-        <mat-option value="senior">Senior</mat-option>
-        <mat-option value="robotics">Robotics Club</mat-option>
-      </mat-select>
+
+
+
+    <!--<mat-form-field>-->
+      <!--<mat-select placeholder="Pick recipient">-->
+        <!--<mat-option value="middle">Middle School</mat-option>-->
+        <!--<mat-option value="freshman">Freshman</mat-option>-->
+        <!--<mat-option value="sophomore">Sophomore</mat-option>-->
+        <!--<mat-option value="junior">Junior</mat-option>-->
+        <!--<mat-option value="senior">Senior</mat-option>-->
+        <!--<mat-option value="robotics">Robotics Club</mat-option>-->
+      <!--</mat-select>-->
+    <!--</mat-form-field>-->
+  </div>
+
+  <div class="editable-dial-example">
+    <mat-form-field appearance="standard">
+    <mat-label>Pick Time</mat-label>
+    <input matInput placeholder="Time"
+           [ngxTimepicker]="editableDial" readonly>
+    <ngx-material-timepicker #editableDial [enableKeyboardInput]="true"></ngx-material-timepicker>
     </mat-form-field>
   </div>
 
-  <quill-editor [style]="{height: '300px'}">
+
+  <quill-editor [style]="{height: '250px'}">
     <div quill-editor-toolbar>
     <span class="ql-formats">
       <button class="ql-bold" [title]="'Bold'"></button>
@@ -59,3 +89,7 @@
     </span>
     </div>
   </quill-editor>
+  <div class="postbutton">
+    <button mat-flat-button color="primary">Post</button>
+  </div>
+</div>

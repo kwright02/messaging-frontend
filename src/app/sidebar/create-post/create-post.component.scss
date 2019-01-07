@@ -1,11 +1,24 @@
-.post-creation{
-  height:100%;
+@import '../../../styles';
+
+.post-creation {
+  margin: 50px;
 }
 
-.input{
+.input {
   display: flex;
   flex-direction: column;
   //flex-wrap: wrap;
   ////justify-content: space-between;
   //align-items: baseline;
 }
+
+.mat-form-field {
+  width: 100%;
+}
+
+.postbutton {
+  display:flex;
+  justify-items: right;
+  margin-top: 20px;
+}
+

@@ -1,0 +1,50 @@
+@import '../../../../styles';
+
+.card-bounds {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.heading-bounds {
+  color: gray;
+  font-size: $messaging-app-font-size-heavy;
+  margin-left: 40px;
+}
+
+.month-heading-bounds {
+  font-size: $messaging-app-font-size;
+  margin-left: 40px;
+}
+
+.mat-card-actions {
+  display:flex;
+
+  .edit-icon {
+    align-self: flex-end;
+  }
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.test-contianer {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+}
+.teaser-text {
+  color: #777777;
+}

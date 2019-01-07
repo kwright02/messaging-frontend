@@ -28,6 +28,7 @@ import { FabComponent } from './sidebar/fab/fab.component';
 import { ExitPostCreationDialogComponent } from './sidebar/exit-post-creation-dialog/exit-post-creation-dialog.component';
 import { PostPanelComponent } from './sidebar/feed/post-panel/post-panel.component';
 import { SentPostComponentComponent } from './sidebar/feed/sent-post-component/sent-post-component.component';
+import { DeleteDialogComponent } from './sidebar/feed/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SentPostComponentComponent } from './sidebar/feed/sent-post-component/s
     FabComponent,
     ExitPostCreationDialogComponent,
     PostPanelComponent,
-    SentPostComponentComponent
+    SentPostComponentComponent,
+    DeleteDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -75,6 +77,7 @@ import { SentPostComponentComponent } from './sidebar/feed/sent-post-component/s
   entryComponents: [
     ApprovedDialogComponent,
     CreatePostComponent,
+    DeleteDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

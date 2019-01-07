@@ -17,8 +17,7 @@ export class PostPanelComponent implements OnInit {
   }
 
   ngOnInit() { }
-
-  openDeleteDialog(): void {
+  openApprovedDialog(): void {
     const dialogRef = this.dialog.open(ApprovedDialogComponent, {
       width: '250px',
     });

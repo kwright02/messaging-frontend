@@ -1,5 +1,5 @@
 <div class="card-bounds">
-  <mat-expansion-panel hideToggle (opened)="panelOpenState=true" (closed)="panelOpenState=false" id={{post.id}}>
+  <mat-expansion-panel hideToggle displayMode="flat" (opened)="panelOpenState=true" (closed)="panelOpenState=false" id={{post.id}}>
     <mat-expansion-panel-header collapsedHeight="120px">
       <div class="test-contianer">
         <div class="inner-container">
@@ -14,7 +14,7 @@
       </div>
     </mat-expansion-panel-header>
 
-    <p> SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
+    <p>SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
       SENIOR HOODIES will arrive on Monday, October 22. Hoodies will be delivered directly to students. COME SEE THE
       FALL PLAY, PLAY ON!, this Thursday, Friday, and Saturday (October 18, 19, 20) at 7pm. Will the company of the
       play within the play, Murder Most Foul, get ready for their show in time OR will chaos ensue? Tickets can be
@@ -23,13 +23,15 @@
       overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
       1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8% </p>
 
-    <div class="edit-icon">
-      <button mat-icon-button>
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-button (click)="openApprovedDialog()">Approve</button>
-      <button mat-button color="primary">Deny</button>
-    </div>
+    <mat-action-row>
+      <div class="edit-icon">
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="openApprovedDialog()">Approve</button>
+        <button mat-button color="primary">Deny</button>
+      </div>
+    </mat-action-row>
 
   </mat-expansion-panel>
 </div>

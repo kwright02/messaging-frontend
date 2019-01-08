@@ -4,5 +4,4 @@ export class Post {
   title: string;
   date: Date;
   // author: string;
-  // post: string;
 }

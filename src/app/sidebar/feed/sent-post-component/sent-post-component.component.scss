@@ -1,8 +1,8 @@
 @import '../../../../styles';
 
 .card-bounds {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .heading-bounds {
@@ -51,4 +51,8 @@ mat-panel-title {
 }
 .teaser-text {
   color: #777777;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
 }

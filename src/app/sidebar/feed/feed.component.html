@@ -16,63 +16,63 @@
 
     <mat-list *ngFor="let post of sentPosts | orderByPipe ; let i = index" [attr.data-index]="i">
 
-      <ng-template [ngIf]="i == 0 && sentPosts[i].date.getMonth() == 7">
-        <div class="month-heading-bounds" #augustMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+      <ng-template [ngIf]="i == 0 && sentPosts[i].senddate.getMonth() == 7">
+        <div class="month-heading-bounds" #augustMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 8) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 8)">
-        <div class="month-heading-bounds" #septemberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 8) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 8)">
+        <div class="month-heading-bounds" #septemberMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 9) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 9)">
-        <div class="month-heading-bounds" #octoberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 9) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 9)">
+        <div class="month-heading-bounds" #octoberMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 10) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 10)">
-        <div class="month-heading-bounds" #novemberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 10) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 10)">
+        <div class="month-heading-bounds" #novemberMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 11) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 11)">
-        <div class="month-heading-bounds" #decemberMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 11) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 11)">
+        <div class="month-heading-bounds" #decemberMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 0) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 0)">
-        <div class="month-heading-bounds" #januaryMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 0) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 0)">
+        <div class="month-heading-bounds" #januaryMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 1) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 1)">
-        <div class="month-heading-bounds" #februaryMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 1) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 1)">
+        <div class="month-heading-bounds" #februaryMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 2) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 2)">
-        <div class="month-heading-bounds" #marchMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 2) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 2)">
+        <div class="month-heading-bounds" #marchMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 3) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 3)">
-        <div class="month-heading-bounds" #aprilMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 3) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 3)">
+        <div class="month-heading-bounds" #aprilMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 4) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 4)">
-        <div class="month-heading-bounds" #mayMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 4) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 4)">
+        <div class="month-heading-bounds" #mayMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 5) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 5)">
-        <div class="month-heading-bounds" #juneMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 5) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 5)">
+        <div class="month-heading-bounds" #juneMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <ng-template
-        [ngIf]="(i == 0 && sentPosts[i].date.getMonth() == 6) || (i != 0 && sentPosts[i].date.getMonth() != sentPosts[i-1].date.getMonth() && sentPosts[i].date.getMonth() == 6)">
-        <div class="month-heading-bounds" #julyMarker>{{monthNames[sentPosts[i].date.getMonth()]}}</div>
+        [ngIf]="(i == 0 && sentPosts[i].senddate.getMonth() == 6) || (i != 0 && sentPosts[i].senddate.getMonth() != sentPosts[i-1].senddate.getMonth() && sentPosts[i].senddate.getMonth() == 6)">
+        <div class="month-heading-bounds" #julyMarker>{{monthNames[sentPosts[i].senddate.getMonth()]}}</div>
       </ng-template>
 
       <app-sent-post-component [post]="post"></app-sent-post-component>

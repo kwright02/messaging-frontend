@@ -2,6 +2,9 @@ export class Post {
   id: number;
   pending: boolean;
   title: string;
-  date: Date;
-  // author: string;
+  author: string;
+  createdate: Date;
+  senddate: Date;
+  recipients: any;
+  content: any;
 }

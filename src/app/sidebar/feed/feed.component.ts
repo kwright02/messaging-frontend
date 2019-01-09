@@ -19,7 +19,7 @@ export class FeedComponent implements AfterViewInit {
 
   posts = POSTS;
 
-  panelOpenState = true;
+  // panelOpenState = true;
 
   pendingPosts: Post[] = [];
 
@@ -71,6 +71,7 @@ export class FeedComponent implements AfterViewInit {
       );
     }
   }
+
   updatePosts() {
     this.pendingPosts = [];
     this.sentPosts = [];

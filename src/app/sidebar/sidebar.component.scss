@@ -17,68 +17,63 @@
   width: 100%;
 }
 
-.example-sidenav {
+.sidenav {
   overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
   width: 200px;
   background-color: mat-color($messaging-app-primary);
 }
 
-.sidebar-content {
+.sidebar-content-container {
+  display: grid;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  grid-template-columns: [left-edge] 15% [content-left] 70% [content-right] 15% [right-edge];
+  grid-template-rows: [top-edge] 10% [new-post-top] 10% [content-top] 80% [content-bottom];
+  justify-items: start;
 }
 
-ul {
-  list-style-type: none;
+.new-post-container {
+  grid-column-start: content-left;
+  grid-column-end: content-right;
+  grid-row-start: new-post-top;
+  grid-row-end: content-top;
+}
+
+.feed-options {
+  grid-column-start: content-left;
+  grid-column-end: content-right;
+  grid-row-start: content-top;
+  grid-row-end: content-bottom;
+}
+
+p {
   margin-top: 15px;
   color: $messaging-app-text;
   font-size: $messaging-app-font-size;
   font-weight: $messaging-app-font-weight;
 }
 
-.unselected-month {
+.unselected-section {
   margin-bottom: 15px;
   text-decoration: none;
   opacity: 0.9;
   cursor: pointer;
 }
 
-.unselected-month:hover {
+.unselected-section:hover {
   margin-bottom: 15px;
   text-decoration: none;
   opacity: 1;
   cursor: pointer;
 }
 
-.selected-month {
+.selected-section {
   margin-bottom: 15px;
   font-weight: bold;
   opacity: 1;
   cursor: pointer;
-}
-
-.unavailable-month {
-  margin-bottom: 15px;
-  text-decoration: none;
-  opacity: 0.5;
-  cursor: default;
-}
-
-.sidebar-content {
-  transform: translate(0%, -50%);
-  position: absolute;
-  top: 50%;
-  padding: 5px;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .exit-button {
@@ -89,4 +84,8 @@ ul {
   font-size: $messaging-app-font-size-heavy;
   color: $messaging-app-text;
   font-weight: $messaging-app-font-weight;
+}
+
+.new-post-button {
+  border-radius: 20px;
 }

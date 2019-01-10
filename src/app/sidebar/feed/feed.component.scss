@@ -3,6 +3,7 @@
 .container{
   display: grid;
   grid-template-columns: [left-margin] 1fr [feed] 80% [right-margin] 2fr;
+  margin-bottom: 40px;
 }
 
 .feed {
@@ -15,8 +16,11 @@
 }
 
 .time-heading-bounds {
+  color: #6e6161;
+  margin-top: 20px;
+  magin-bottom: 5px;
   font-size: $messaging-app-font-size;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .mat-card-actions {

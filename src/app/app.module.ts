@@ -27,6 +27,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { FabComponent } from './sidebar/fab/fab.component';
 import { ExitPostCreationDialogComponent } from './sidebar/exit-post-creation-dialog/exit-post-creation-dialog.component';
 import { PostPanelComponent } from './sidebar/feed/post-panel/post-panel.component';
+import { SentPostComponentComponent } from './sidebar/feed/sent-post-component/sent-post-component.component';
+import { DeleteDialogComponent } from './sidebar/feed/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { PostPanelComponent } from './sidebar/feed/post-panel/post-panel.compone
     OrderByPipe,
     FabComponent,
     ExitPostCreationDialogComponent,
-    PostPanelComponent
+    PostPanelComponent,
+    SentPostComponentComponent,
+    DeleteDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -73,6 +77,7 @@ import { PostPanelComponent } from './sidebar/feed/post-panel/post-panel.compone
   entryComponents: [
     ApprovedDialogComponent,
     CreatePostComponent,
+    DeleteDialogComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

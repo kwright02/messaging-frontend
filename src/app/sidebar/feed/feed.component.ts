@@ -71,6 +71,7 @@ export class FeedComponent implements AfterViewInit {
       );
     }
   }
+
   updatePosts() {
     this.pendingPosts = [];
     this.sentPosts = [];

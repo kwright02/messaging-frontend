@@ -1,0 +1,59 @@
+<div class="card-bounds">
+  <mat-expansion-panel hideToggle (opened)="panelOpenState=true" (closed)="panelOpenState=false">
+    <mat-expansion-panel-header collapsedHeight="120px">
+      <div class="test-contianer">
+        <div class="inner-container">
+          <mat-panel-title>{{post.title}}</mat-panel-title>
+          <mat-panel-description>Currently I am {{panelOpenState ? 'open' : 'closed'}}</mat-panel-description>
+          <mat-icon matTooltip={{post.recipients}}>people_outline</mat-icon>
+        </div>
+        <div class="teaser-text" *ngIf=!panelOpenState>
+          {{post.content}}
+        </div>
+      </div>
+    </mat-expansion-panel-header>
+
+    <p>{{post.content}}</p>
+
+    <mat-action-row>
+      <div class="edit-icon">
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="openApprovedDialog()">Approve</button>
+        <button mat-button color="primary">Deny</button>
+      </div>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+</div>
+
+
+<!--<div class="card-bounds">-->
+  <!--<mat-expansion-panel hideToggle (opened)="panelOpenState=true" (closed)="panelOpenState=false" id={{post.id}}>-->
+    <!--<mat-expansion-panel-header collapsedHeight="120px">-->
+      <!--<div class="test-contianer">-->
+        <!--<div class="inner-container">-->
+          <!--<mat-panel-title>{{post.title}}</mat-panel-title>-->
+          <!--<mat-panel-description>Currently I am {{panelOpenState ? 'open' : 'closed'}}</mat-panel-description>-->
+          <!--<mat-icon matTooltip={{post.recipients}}>people_outline</mat-icon>-->
+        <!--</div>-->
+        <!--<div class="teaser-text" *ngIf=!panelOpenState>-->
+          <!--{{post.content}}-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</mat-expansion-panel-header>-->
+
+    <!--<p>{{post.content}}</p>-->
+
+    <!--<mat-action-row>-->
+      <!--<div class="edit-icon">-->
+        <!--<button mat-icon-button (click)="openDeleteDialog()">-->
+          <!--<mat-icon>delete</mat-icon>-->
+        <!--</button>-->
+      <!--</div>-->
+    <!--</mat-action-row>-->
+
+
+  <!--</mat-expansion-panel>-->
+<!--</div>-->

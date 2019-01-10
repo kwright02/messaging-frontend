@@ -1,33 +1,29 @@
 <div class="card-bounds">
-  <mat-expansion-panel hideToggle (opened)="panelOpenState=true" (closed)="panelOpenState=false" id={{post.id}}>
+  <mat-expansion-panel hideToggle (opened)="panelOpenState=true" (closed)="panelOpenState=false">
     <mat-expansion-panel-header collapsedHeight="120px">
       <div class="test-contianer">
         <div class="inner-container">
           <mat-panel-title>{{post.title}}</mat-panel-title>
-          <mat-panel-description>Currently I am {{panelOpenState ? 'open' : 'closed'}}</mat-panel-description>
-          <mat-icon matTooltip="All high schoolers">people_outline</mat-icon>
+          <mat-panel-description>{{post.senddate}}</mat-panel-description>
+          <mat-icon matTooltip={{post.recipients}}>people_outline</mat-icon>
         </div>
         <div class="teaser-text" *ngIf=!panelOpenState>
-          SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
-          SENIOR HOODIES will arrive on Monday...
+          {{post.content}}
         </div>
       </div>
     </mat-expansion-panel-header>
 
-    <p> SENIORS: JOSTEN'S WILL RETURN this Friday, October 19 in the main gym lobby during lunch to collect Graduation item orders.
-      SENIOR HOODIES will arrive on Monday, October 22. Hoodies will be delivered directly to students. COME SEE THE
-      FALL PLAY, PLAY ON!, this Thursday, Friday, and Saturday (October 18, 19, 20) at 7pm. Will the company of the
-      play within the play, Murder Most Foul, get ready for their show in time OR will chaos ensue? Tickets can be
-      purchased from Ms. Corvera in A213 or at the Box Office starting one hour before each show. Students and Children
-      are $4 and Adults are $6. ATTENDANCE BATTLE OF THE CLASSES: 3 classes over the 90/90 attendance goal and 90.2%
-      overall as a school, Great Job PHS!! Remember: Ice Cream for any class over 90% at the end of each grading period.
-      1st Place: Juniors 92.1% 2nd Place: Sophomores 90.6% 3rd Place: Freshmen 90.1% 4th Place: Seniors 87.8% </p>
+    <p>{{post.content}}</p>
 
-    <div class="edit-icon">
-      <button mat-icon-button (click)="openDeleteDialog()">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
+    <mat-action-row>
+      <div class="edit-icon">
+        <button mat-icon-button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="openApprovedDialog()">Approve</button>
+        <button mat-button color="primary">Deny</button>
+      </div>
+    </mat-action-row>
 
   </mat-expansion-panel>
 </div>

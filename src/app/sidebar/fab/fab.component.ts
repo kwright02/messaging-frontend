@@ -9,6 +9,7 @@ import {speedDialFabAnimations} from './fab.animations';
 })
 export class FabComponent {
   isCreationPostVisible = false;
+  fabTogglerState = 'inactive';
 
   @ViewChild('feed') feedContent;
 
@@ -16,15 +17,17 @@ export class FabComponent {
 
   showCreate() {
     this.isCreationPostVisible = true;
+    this.fabTogglerState = 'active';
   }
 
   showFeed() {
     this.isCreationPostVisible = false;
+    this.fabTogglerState = 'inactive';
   }
 
   onToggleFab() {
     if (this.isCreationPostVisible) {
-      // this.showFeed();
+      this.showFeed();
     } else {
       this.showCreate();
     }

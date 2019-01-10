@@ -3,11 +3,11 @@
     <mat-list *ngFor="let post of shownPosts; let i = index">
 
       <ng-template [ngIf]="i == 0">
-        <p class="time-heading-bounds">{{headingBuilder(post.date)}}</p>
+        <p class="time-heading-bounds">{{headingBuilder(post.senddate)}}</p>
       </ng-template>
 
       <ng-template [ngIf]="i > 0">
-        <p class="time-heading-bounds">{{pastFirstHeadingBuilder(post.date, shownPosts[i-1].date)}}</p>
+        <p class="time-heading-bounds">{{pastFirstHeadingBuilder(post.senddate, shownPosts[i-1].senddate)}}</p>
       </ng-template>
 
       <app-post-panel [post]="post"></app-post-panel>

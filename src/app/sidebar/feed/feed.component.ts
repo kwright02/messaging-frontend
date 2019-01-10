@@ -13,16 +13,20 @@ import {CreatePostComponent} from '../create-post/create-post.component';
 })
 export class FeedComponent implements AfterViewInit {
 
+  constructor(public dialog: MatDialog) {
+    this.updatePosts();
+  }
+
   monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
   posts = POSTS;
 
-  panelOpenState = true;
+  shownPosts:   Post[];
+  shownSection = 'sent';
 
   pendingPosts: Post[] = [];
-
   sentPosts:    Post[] = [];
 
   @ViewChildren('pendingMarker') pendingMarker:     QueryList<any>;
@@ -42,10 +46,6 @@ export class FeedComponent implements AfterViewInit {
   @ViewChildren('julyMarker')      julyMarker:      QueryList<any>;
 
   markers: QueryList<any>[];
-
-  constructor(public dialog: MatDialog) {
-    this.updatePosts();
-  }
 
   ngAfterViewInit() {
     this.markers = [this.augustMarker, this.septemberMarker, this.octoberMarker, this.novemberMarker,
@@ -81,6 +81,25 @@ export class FeedComponent implements AfterViewInit {
         this.sentPosts.push(post);
       }
     }
+    this.pendingPosts.sort((a: any, b: any) => {
+      if (a.date.getTime() < b.date.getTime()) {
+        return 1;
+      } else if (a.date.getTime() > b.date.getTime()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    this.sentPosts.sort((a: any, b: any) => {
+      if (a.date.getTime() < b.date.getTime()) {
+        return 1;
+      } else if (a.date.getTime() > b.date.getTime()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    this.changeShownSection(this.shownSection);
   }
   updatePostsWithSearch(search: string) {
     this.pendingPosts = [];
@@ -94,5 +113,58 @@ export class FeedComponent implements AfterViewInit {
         }
       }
     }
+    this.pendingPosts.sort((a: any, b: any) => {
+      if (a.date.getTime() < b.date.getTime()) {
+        return 1;
+      } else if (a.date.getTime() > b.date.getTime()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    this.sentPosts.sort((a: any, b: any) => {
+      if (a.date.getTime() < b.date.getTime()) {
+        return 1;
+      } else if (a.date.getTime() > b.date.getTime()) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+    this.changeShownSection(this.shownSection);
+  }
+  changeShownSection(section: string) {
+    switch (section) {
+      case 'sent':
+        this.shownPosts = this.sentPosts;
+        break;
+      case 'pending':
+        this.shownPosts = this.pendingPosts;
+        break;
+    }
+    this.shownSection = section;
+  }
+  currentDate() {
+    return new Date(Date.now());
+  }
+  firstHeadingBuilder(date: Date) {
+    if (date.getDate() === this.currentDate().getDate()
+      && date.getMonth() === this.currentDate().getMonth()
+      && date.getFullYear() === date.getFullYear())  {
+      return 'Today';
+    } else if (date.getDate() === this.currentDate().getDate() - 1
+      && date.getMonth() === this.currentDate().getMonth()
+      && date.getFullYear() === date.getFullYear()) {
+      return 'Yesterday';
+    } else if (date.getDate() < this.currentDate().getDate() - 1
+      && date.getMonth() === this.currentDate().getMonth()
+      && date.getFullYear() === date.getFullYear()) {
+      return 'Earlier this month';
+    } else {
+      return this.monthHeadingBuilder(date);
+    }
+  }
+  monthHeadingBuilder(date: Date) {
+    return this.monthNames[date.getMonth()] + ' ' + date.getFullYear();
   }
 }

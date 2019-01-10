@@ -34,12 +34,8 @@ export class SidebarComponent implements AfterViewInit {
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
-  checkScroll() {
-    this.updateSidebar();
-  }
-
   ngAfterViewInit() {
-    this.updateSidebar();
+    this.changeSection('sent');
   }
 
   updateSidebar() {
@@ -76,5 +72,19 @@ export class SidebarComponent implements AfterViewInit {
     if (monthName === 'Pending' && this.fabContent.feedContent.pendingMarker.first != null) {
       this.fabContent.feedContent.pendingMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
     }
+  }
+
+  changeSection(section: string) {
+    switch (section) {
+      case 'sent':
+        this.sentClass =    'selected-section';
+        this.pendingClass = 'unselected-section';
+        break;
+      case 'pending':
+        this.sentClass =    'unselected-section';
+        this.pendingClass = 'selected-section';
+        break;
+    }
+    this.fabContent.feedContent.changeShownSection(section);
   }
 }

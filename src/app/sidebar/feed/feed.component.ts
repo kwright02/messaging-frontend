@@ -11,7 +11,7 @@ import {CreatePostComponent} from '../create-post/create-post.component';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements AfterViewInit {
+export class FeedComponent {
 
   constructor(public dialog: MatDialog) {
     this.updatePosts();
@@ -29,49 +29,6 @@ export class FeedComponent implements AfterViewInit {
   pendingPosts: Post[] = [];
   sentPosts:    Post[] = [];
 
-  @ViewChildren('pendingMarker') pendingMarker:     QueryList<any>;
-  @ViewChildren('sentMarker')    sentMarker:        QueryList<any>;
-
-  @ViewChildren('augustMarker')    augustMarker:    QueryList<any>;
-  @ViewChildren('septemberMarker') septemberMarker: QueryList<any>;
-  @ViewChildren('octoberMarker')   octoberMarker:   QueryList<any>;
-  @ViewChildren('novemberMarker')  novemberMarker:  QueryList<any>;
-  @ViewChildren('decemberMarker')  decemberMarker:  QueryList<any>;
-  @ViewChildren('januaryMarker')   januaryMarker:   QueryList<any>;
-  @ViewChildren('februaryMarker')  februaryMarker:  QueryList<any>;
-  @ViewChildren('marchMarker')     marchMarker:     QueryList<any>;
-  @ViewChildren('aprilMarker')     aprilMarker:     QueryList<any>;
-  @ViewChildren('mayMarker')       mayMarker:       QueryList<any>;
-  @ViewChildren('juneMarker')      juneMarker:      QueryList<any>;
-  @ViewChildren('julyMarker')      julyMarker:      QueryList<any>;
-
-  markers: QueryList<any>[];
-
-  ngAfterViewInit() {
-    this.markers = [this.augustMarker, this.septemberMarker, this.octoberMarker, this.novemberMarker,
-                    this.decemberMarker, this.januaryMarker, this.februaryMarker, this.marchMarker,
-                    this.aprilMarker, this.mayMarker, this.juneMarker, this.julyMarker];
-
-    this.sentMarker.changes.subscribe(
-      (result) => {
-        console.log(result.first.nativeElement);
-      }
-    );
-    this.pendingMarker.changes.subscribe(
-      (result) => {
-        console.log(result.first.nativeElement);
-      }
-    );
-    console.log('In init ' + this.markers);
-    for (const marker of this.markers) {
-      marker.changes.subscribe(
-        (result) => {
-          console.log(result.first.nativeElement);
-        }
-      );
-    }
-  }
-
   updatePosts() {
     this.pendingPosts = [];
     this.sentPosts = [];
@@ -82,19 +39,19 @@ export class FeedComponent implements AfterViewInit {
         this.sentPosts.push(post);
       }
     }
-    this.pendingPosts.sort((a: any, b: any) => {
-      if (a.date.getTime() < b.date.getTime()) {
+    this.pendingPosts.sort((a: Post, b: Post) => {
+      if (a.senddate.getTime() < b.senddate.getTime()) {
         return 1;
-      } else if (a.date.getTime() > b.date.getTime()) {
+      } else if (a.senddate.getTime() > b.senddate.getTime()) {
         return -1;
       } else {
         return 0;
       }
     });
-    this.sentPosts.sort((a: any, b: any) => {
-      if (a.date.getTime() < b.date.getTime()) {
+    this.sentPosts.sort((a: Post, b: Post) => {
+      if (a.senddate.getTime() < b.senddate.getTime()) {
         return 1;
-      } else if (a.date.getTime() > b.date.getTime()) {
+      } else if (a.senddate.getTime() > b.senddate.getTime()) {
         return -1;
       } else {
         return 0;
@@ -114,19 +71,19 @@ export class FeedComponent implements AfterViewInit {
         }
       }
     }
-    this.pendingPosts.sort((a: any, b: any) => {
-      if (a.date.getTime() < b.date.getTime()) {
+    this.pendingPosts.sort((a: Post, b: Post) => {
+      if (a.senddate.getTime() < b.senddate.getTime()) {
         return 1;
-      } else if (a.date.getTime() > b.date.getTime()) {
+      } else if (a.senddate.getTime() > b.senddate.getTime()) {
         return -1;
       } else {
         return 0;
       }
     });
-    this.sentPosts.sort((a: any, b: any) => {
-      if (a.date.getTime() < b.date.getTime()) {
+    this.sentPosts.sort((a: Post, b: Post) => {
+      if (a.senddate.getTime() < b.senddate.getTime()) {
         return 1;
-      } else if (a.date.getTime() > b.date.getTime()) {
+      } else if (a.senddate.getTime() > b.senddate.getTime()) {
         return -1;
       } else {
         return 0;

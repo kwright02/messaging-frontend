@@ -4,7 +4,7 @@
       <div class="test-contianer">
         <div class="inner-container">
           <mat-panel-title>{{post.title}}</mat-panel-title>
-          <mat-panel-description>Currently I am {{panelOpenState ? 'open' : 'closed'}}</mat-panel-description>
+          <mat-panel-description>{{post.senddate}}</mat-panel-description>
           <mat-icon matTooltip={{post.recipients}}>people_outline</mat-icon>
         </div>
         <div class="teaser-text" *ngIf=!panelOpenState>

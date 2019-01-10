@@ -147,21 +147,26 @@ export class FeedComponent implements AfterViewInit {
   currentDate() {
     return new Date(Date.now());
   }
-  firstHeadingBuilder(date: Date) {
+  headingBuilder(date: Date) {
     if (date.getDate() === this.currentDate().getDate()
       && date.getMonth() === this.currentDate().getMonth()
-      && date.getFullYear() === date.getFullYear())  {
+      && date.getFullYear() === this.currentDate().getFullYear())  {
       return 'Today';
     } else if (date.getDate() === this.currentDate().getDate() - 1
       && date.getMonth() === this.currentDate().getMonth()
-      && date.getFullYear() === date.getFullYear()) {
+      && date.getFullYear() === this.currentDate().getFullYear()) {
       return 'Yesterday';
     } else if (date.getDate() < this.currentDate().getDate() - 1
       && date.getMonth() === this.currentDate().getMonth()
-      && date.getFullYear() === date.getFullYear()) {
+      && date.getFullYear() === this.currentDate().getFullYear()) {
       return 'Earlier this month';
     } else {
       return this.monthHeadingBuilder(date);
+    }
+  }
+  pastFirstHeadingBuilder(date1: Date, date2: Date) {
+    if (this.headingBuilder(date1) !== this.headingBuilder(date2))  {
+      return this.headingBuilder(date1);
     }
   }
   monthHeadingBuilder(date: Date) {

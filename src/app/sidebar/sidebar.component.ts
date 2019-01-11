@@ -10,8 +10,6 @@ export class SidebarComponent implements AfterViewInit {
 
   constructor() {}
 
-  FEED_TRANSITION_POINT = 550;
-
   monthMarkers: MonthMarker[] = [
     {available: false, selected: false, monthName: 'August'},
     {available: false, selected: false, monthName: 'September'},
@@ -31,49 +29,18 @@ export class SidebarComponent implements AfterViewInit {
 
   @ViewChild('searchBar')      searchBar;
 
+  @ViewChild('seniorsCheckbox')    seniorsCheckbox;
+  @ViewChild('juniorsCheckbox')    juniorsCheckbox;
+  @ViewChild('sophomoresCheckbox') sophomoresCheckbox;
+  @ViewChild('freshmenCheckbox')   freshmenCheckbox;
+
   pendingClass = 'selected-month';
-  sentClass = 'unselected-month';
+  sentClass    = 'unselected-month';
+  groupClass   = 'groups-close';
 
   ngAfterViewInit() {
     this.changeSection('sent');
   }
-
-  updateSidebar() {
-    this.pendingClass  = 'selected-month';
-    this.sentClass     = 'unselected-month';
-
-    for (let i = 0; i < 12; i++) {
-      this.monthMarkers[i].selected = false;
-      if (this.fabContent.feedContent.markers[i].first != null) {
-        this.monthMarkers[i].available = true;
-      }
-    }
-    for (let i = 11; i >= 0; i--) {
-      if (this.fabContent.feedContent.markers[i].first != null &&
-        this.fabContent.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top <= this.FEED_TRANSITION_POINT) {
-        this.monthMarkers[i].selected = true;
-        this.pendingClass  = 'unselected-month';
-        this.sentClass     = 'selected-month';
-        break;
-      }
-    }
-  }
-
-  onMonthClicked(monthName) {
-    for (let i = 0; i < 12; i++) {
-      if (monthName === this.monthMarkers[i].monthName && this.fabContent.feedContent.markers[i].first != null) {
-        this.fabContent.feedContent.markers[i].first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-        break;
-      }
-    }
-    if (monthName === 'Sent' && this.fabContent.feedContent.sentMarker.first != null) {
-      this.fabContent.feedContent.sentMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-    }
-    if (monthName === 'Pending' && this.fabContent.feedContent.pendingMarker.first != null) {
-      this.fabContent.feedContent.pendingMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-    }
-  }
-
   changeSection(section: string) {
     switch (section) {
       case 'sent':
@@ -86,5 +53,15 @@ export class SidebarComponent implements AfterViewInit {
         break;
     }
     this.fabContent.feedContent.changeShownSection(section);
+  }
+  toggleGroups() {
+    if (this.groupClass === 'groups-open') {
+      this.groupClass = 'groups-close';
+      console.log('close');
+    } else {
+      this.groupClass = 'groups-open';
+      console.log('open');
+    }
+    console.log(this.groupClass);
   }
 }

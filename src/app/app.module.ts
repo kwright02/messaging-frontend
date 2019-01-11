@@ -15,7 +15,7 @@ import {
   MatInputModule,
   MatListModule, MatNativeDateModule, MatSelectModule,
   MatSidenavModule,
-  MatToolbarModule, MatAutocompleteModule, MatExpansionModule, MatTooltipModule
+  MatToolbarModule, MatAutocompleteModule, MatExpansionModule, MatTooltipModule, MatCheckboxModule
 } from '@angular/material';
 import { ApprovedDialogComponent } from './sidebar/feed/approved-dialog/approved-dialog.component';
 import { CreatePostComponent } from './sidebar/create-post/create-post.component';
@@ -70,7 +70,8 @@ import { DeleteDialogComponent } from './sidebar/feed/delete-dialog/delete-dialo
     MatChipsModule,
     MatAutocompleteModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule
   ],
   entryComponents: [
     ApprovedDialogComponent,

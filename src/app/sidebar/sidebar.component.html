@@ -22,7 +22,13 @@
         <div class="feed-options">
           <p class={{sentClass}} (click)="changeSection('sent')">Sent</p>
           <p class={{pendingClass}} (click)="changeSection('pending')">Pending</p>
-          <p>Groups</p>
+          <p (click)="toggleGroups()">Groups</p>
+          <ul class={{groupClass}}>
+            <li><mat-checkbox #seniorsCheckbox>Seniors</mat-checkbox></li>
+            <li><mat-checkbox #juniorsCheckbox>Juniors</mat-checkbox></li>
+            <li><mat-checkbox #sophomoresCheckbox>Sophomores</mat-checkbox></li>
+            <li><mat-checkbox #freshmenCheckbox>Freshmen</mat-checkbox></li>
+          </ul>
         </div>
       </div>
     </mat-sidenav>

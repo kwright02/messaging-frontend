@@ -17,7 +17,7 @@
     <mat-sidenav #sidenav mode="side" opened class="sidenav" disableClose = "true" [fixedInViewport]="false">
       <div class="sidebar-content-container">
         <div class="new-post-container">
-          <button mat-raised-button class="new-post-button" color="accent">New Post</button>
+          <button mat-raised-button class="new-post-button" color="accent" (click)="createScreen()"> <mat-icon>edit</mat-icon> New Post</button>
         </div>
         <div class="feed-options">
           <p class={{sentClass}} (click)="changeSection('sent')">Sent</p>
@@ -27,6 +27,11 @@
       </div>
     </mat-sidenav>
     <mat-sidenav-content class="main-content" #feedContainer>
-        <app-fab #fab></app-fab>
+      <div *ngIf = "isCreationPostVisible; else elseBlock">
+        <app-create-post></app-create-post>
+      </div>
+      <ng-template class="main-post" #elseBlock>
+        <app-feed #feed></app-feed>
+      </ng-template>
     </mat-sidenav-content>
 </mat-sidenav-container>

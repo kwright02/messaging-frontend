@@ -1,5 +1,11 @@
 <div class="post-creation">
-<h1>Create a New Post</h1>
+
+  <div class="header">
+    <button mat-icon-button (click)="onBackClick()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h1>Create a New Post</h1>
+  </div>
 
   <div class="input">
 
@@ -18,11 +24,10 @@
     <mat-form-field class="example-chip-list">
       <mat-chip-list #chipList>
         <mat-chip
-          *ngFor="let testGroup of allGroups"
+          *ngFor="let group of allGroups"
           [selectable]="selectable"
           [removable]="removable"
-          (removed)="remove(fruit)">
-          {{fruit}}
+          (removed)="remove(group)">
           <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
         <input

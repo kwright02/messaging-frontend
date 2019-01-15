@@ -28,7 +28,7 @@
     </mat-sidenav>
     <mat-sidenav-content class="main-content" #feedContainer>
       <div *ngIf = "isCreationPostVisible; else elseBlock">
-        <app-create-post></app-create-post>
+        <app-create-post (voted)="onVoted($event)"></app-create-post>
       </div>
       <ng-template class="main-post" #elseBlock>
         <app-feed #feed></app-feed>

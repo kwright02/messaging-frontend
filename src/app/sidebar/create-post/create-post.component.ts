@@ -1,5 +1,5 @@
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
 import {Observable} from 'rxjs';
@@ -28,6 +28,10 @@ export class CreatePostComponent {
 
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('feed') feedContent;
+
+  @Output() voted = new EventEmitter<boolean>();
+  didVote = false;
 
   constructor() {
     this.filteredFruits = this.groupCtl.valueChanges.pipe(
@@ -68,6 +72,11 @@ export class CreatePostComponent {
     this.testGroup.push(event.option.viewValue);
     this.fruitInput.nativeElement.value = '';
     this.groupCtl.setValue(null);
+  }
+
+  onBackClick() {
+    this.voted.emit(true);
+    console.log('Clicked');
   }
 
   private _filter(value: string): string[] {

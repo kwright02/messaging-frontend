@@ -34,6 +34,10 @@ export class SidebarComponent implements AfterViewInit {
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
+  agreed = true;
+
+  isCreationPostVisible = false;
+
   ngAfterViewInit() {
     this.changeSection('sent');
   }
@@ -52,6 +56,11 @@ export class SidebarComponent implements AfterViewInit {
     this.feedContent.changeShownSection(section);
   }
   createScreen() {
-
+    this.isCreationPostVisible = true;
+  }
+  onVoted(agreed: boolean) {
+    if (this.agreed) {
+      this.isCreationPostVisible = false;
+    }
   }
 }

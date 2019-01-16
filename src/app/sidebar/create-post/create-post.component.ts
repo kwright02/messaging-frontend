@@ -21,34 +21,31 @@ export class CreatePostComponent {
   removable = true;
   addOnBlur = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
-  groupCtl = new FormControl();
-  filteredFruits: Observable<string[]>;
-  testGroup: string[] = ['Lemon'];
-  allGroups: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  groupCtrl = new FormControl();
+  filteredGroups: Observable<string[]>;
+  groups: string[] = [];
+  allGroups: string[] = ['All Students', '8th Grade', 'Freshman (9)', 'Sophomores (10)', 'Juniors (11)', 'Seniors (12)'];
 
-  @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
+  @ViewChild('groupInput') groupInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  @ViewChild('feed') feedContent;
-
   @Output() voted = new EventEmitter<boolean>();
-  didVote = false;
 
   constructor() {
-    this.filteredFruits = this.groupCtl.valueChanges.pipe(
+    this.filteredGroups = this.groupCtrl.valueChanges.pipe(
       startWith(null),
       map((fruit: string | null) => fruit ? this._filter(fruit) : this.allGroups.slice()));
   }
 
   add(event: MatChipInputEvent): void {
-    // Add fruit only when MatAutocomplete is not open
+    // Add group only when MatAutocomplete is not open
     // To make sure this does not conflict with OptionSelected Event
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
 
-      // Add our fruit
+      // Add our group
       if ((value || '').trim()) {
-        this.testGroup.push(value.trim());
+        this.groups.push(value.trim());
       }
 
       // Reset the input value
@@ -56,33 +53,33 @@ export class CreatePostComponent {
         input.value = '';
       }
 
-      this.groupCtl.setValue(null);
+      this.groupCtrl.setValue(null);
     }
   }
 
-  remove(fruit: string): void {
-    const index = this.testGroup.indexOf(fruit);
+  remove(group: string): void {
+    const index = this.groups.indexOf(group);
 
     if (index >= 0) {
-      this.testGroup.splice(index, 1);
+      this.groups.splice(index, 1);
     }
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.testGroup.push(event.option.viewValue);
-    this.fruitInput.nativeElement.value = '';
-    this.groupCtl.setValue(null);
-  }
-
-  onBackClick() {
-    this.voted.emit(true);
-    console.log('Clicked');
+    this.groups.push(event.option.viewValue);
+    this.groupInput.nativeElement.value = '';
+    this.groupCtrl.setValue(null);
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allGroups.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allGroups.filter(group => group.toLowerCase().indexOf(filterValue) === 0);
   }
+  onBackClick() {
+    this.voted.emit(true);
+    console.log('Clicked');
+  }
+
 }
 

@@ -10,7 +10,12 @@
         <p class="time-heading-bounds">{{pastFirstHeadingBuilder(post.senddate, shownPosts[i-1].senddate)}}</p>
       </ng-template>
 
-      <app-post-panel [post]="post"></app-post-panel>
+      <div *ngIf="post.pending">
+        <app-post-panel [post]="post"></app-post-panel>
+      </div>
+      <div *ngIf="!post.pending">
+        <app-sent-post-component [post]="post"></app-sent-post-component>
+      </div>
     </mat-list>
   </div>
 </div>

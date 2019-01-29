@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
     "@kolkov/angular-editor": "^0.13.1",
+    "@types/gapi": "0.0.36",
+    "@types/gapi.auth2": "0.0.48",
     "angular-froala-wysiwyg": "^2.9.1",
     "angular-material-time-picker": "^1.0.8",
     "core-js": "^2.5.4",

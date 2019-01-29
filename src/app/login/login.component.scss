@@ -1,26 +1,13 @@
 @import "../../styles";
 
-.centering-container {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  margin: 0 auto;
-  overflow: auto;
-}
-
-.login-container {
-  width: 30%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 20px;
-  overflow: auto;
+body {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-button {
-  width: auto;
-  align-self: center;
+.g-signin2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

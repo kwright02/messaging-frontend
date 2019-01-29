@@ -41,7 +41,7 @@ export class FeedComponent {
   pendingPosts: Post[] = [];
   sentPosts:    Post[] = [];
 
-  messageURL = 'http://10.51.200.249:3000/api/messages/';
+  messageURL = 'http://<Server IP>/api/messages/';
   messages: any;
 
     // Read all REST Items

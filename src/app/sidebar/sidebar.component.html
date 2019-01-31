@@ -7,9 +7,7 @@
         <input matInput type="text" placeholder="Search" (keyup)="fabContent.feedContent.updatePostsWithSearch(searchBar.value)" #searchBar>
       </mat-form-field>
     </form>
-    <button mat-icon-button routerLink="/login" class="exit-button">
-      <mat-icon matSuffix>exit_to_app</mat-icon>
-    </button>
+    <img (click)="logout()" class="user-icon" src="{{userIconLocation}}">
   </mat-toolbar-row>
 </mat-toolbar>
 

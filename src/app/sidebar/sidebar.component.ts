@@ -1,14 +1,16 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, NgZone, OnInit, ViewChild} from '@angular/core';
 import {MonthMarker} from './month-marker';
+import {UserService} from '../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements AfterViewInit {
+export class SidebarComponent implements AfterViewInit, OnInit {
 
-  constructor() {}
+  constructor(private userService: UserService, private router: Router, private ngZone: NgZone) {}
 
   FEED_TRANSITION_POINT = 550;
 
@@ -34,44 +36,14 @@ export class SidebarComponent implements AfterViewInit {
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
+  userIconLocation: string;
+
+  ngOnInit() {
+    this.userIconLocation = this.userService.getAuth().currentUser.get().getBasicProfile().getImageUrl();
+  }
+
   ngAfterViewInit() {
     this.changeSection('sent');
-  }
-
-  updateSidebar() {
-    this.pendingClass  = 'selected-month';
-    this.sentClass     = 'unselected-month';
-
-    for (let i = 0; i < 12; i++) {
-      this.monthMarkers[i].selected = false;
-      if (this.fabContent.feedContent.markers[i].first != null) {
-        this.monthMarkers[i].available = true;
-      }
-    }
-    for (let i = 11; i >= 0; i--) {
-      if (this.fabContent.feedContent.markers[i].first != null &&
-        this.fabContent.feedContent.markers[i].first.nativeElement.getBoundingClientRect().top <= this.FEED_TRANSITION_POINT) {
-        this.monthMarkers[i].selected = true;
-        this.pendingClass  = 'unselected-month';
-        this.sentClass     = 'selected-month';
-        break;
-      }
-    }
-  }
-
-  onMonthClicked(monthName) {
-    for (let i = 0; i < 12; i++) {
-      if (monthName === this.monthMarkers[i].monthName && this.fabContent.feedContent.markers[i].first != null) {
-        this.fabContent.feedContent.markers[i].first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-        break;
-      }
-    }
-    if (monthName === 'Sent' && this.fabContent.feedContent.sentMarker.first != null) {
-      this.fabContent.feedContent.sentMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-    }
-    if (monthName === 'Pending' && this.fabContent.feedContent.pendingMarker.first != null) {
-      this.fabContent.feedContent.pendingMarker.first.nativeElement.scrollIntoView({ behavior: 'smooth'});
-    }
   }
 
   changeSection(section: string) {
@@ -86,5 +58,10 @@ export class SidebarComponent implements AfterViewInit {
         break;
     }
     this.fabContent.feedContent.changeShownSection(section);
+  }
+
+  logout() {
+    this.userService.getAuth().signOut();
+    this.ngZone.run(() => this.router.navigate(['/', 'login'])).then();
   }
 }

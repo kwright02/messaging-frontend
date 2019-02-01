@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {MonthMarker} from './month-marker';
 import {UserService} from '../user.service';
 import {Router} from '@angular/router';
 
@@ -12,26 +11,7 @@ export class SidebarComponent implements AfterViewInit, OnInit {
 
   constructor(private userService: UserService, private router: Router, private ngZone: NgZone) {}
 
-  FEED_TRANSITION_POINT = 550;
-
-  monthMarkers: MonthMarker[] = [
-    {available: false, selected: false, monthName: 'August'},
-    {available: false, selected: false, monthName: 'September'},
-    {available: false, selected: false, monthName: 'October'},
-    {available: false, selected: false, monthName: 'November'},
-    {available: false, selected: false, monthName: 'December'},
-    {available: false, selected: false, monthName: 'January'},
-    {available: false, selected: false, monthName: 'February'},
-    {available: false, selected: false, monthName: 'March'},
-    {available: false, selected: false, monthName: 'April'},
-    {available: false, selected: false, monthName: 'May'},
-    {available: false, selected: false, monthName: 'June'},
-    {available: false, selected: false, monthName: 'July'}];
-
-  @ViewChild('fab')            fabContent;
-  @ViewChild('feedContainer')  feedScrollingContainer;
-
-  @ViewChild('searchBar')      searchBar;
+  @ViewChild('fab') fabContent;
 
   isAdmin = false;
 

@@ -7,7 +7,7 @@
         <input matInput type="text" placeholder="Search" (keyup)="fabContent.feedContent.updatePostsWithSearch(searchBar.value)" #searchBar>
       </mat-form-field>
     </form>
-    <img (click)="logout()" class="user-icon" src="{{userIconLocation}}">
+    <img (click)="logout()" class="user-icon" src="{{userIconLocation}}" alt="user_icon">
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -24,7 +24,7 @@
         </div>
       </div>
     </mat-sidenav>
-    <mat-sidenav-content class="main-content" #feedContainer>
+    <mat-sidenav-content class="main-content">
         <app-fab #fab></app-fab>
     </mat-sidenav-content>
 </mat-sidenav-container>

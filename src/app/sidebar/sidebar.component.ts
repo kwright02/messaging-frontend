@@ -33,6 +33,8 @@ export class SidebarComponent implements AfterViewInit, OnInit {
 
   @ViewChild('searchBar')      searchBar;
 
+  isAdmin = false;
+
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
@@ -40,6 +42,15 @@ export class SidebarComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.userIconLocation = this.userService.getAuth().currentUser.get().getBasicProfile().getImageUrl();
+    const email = this.userService.getAuth().currentUser.get().getBasicProfile().getEmail();
+
+    if (email.includes('@psdr3.org')) {
+      this.isAdmin = true;
+    } else if (email.includes('@student.psdr3.org')) {
+      this.isAdmin = false;
+    } else {
+      this.logout();
+    }
   }
 
   ngAfterViewInit() {

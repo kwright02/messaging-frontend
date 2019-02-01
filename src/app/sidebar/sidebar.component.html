@@ -14,7 +14,7 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" opened class="sidenav" disableClose = "true" [fixedInViewport]="false">
       <div class="sidebar-content-container">
-        <div class="new-post-container">
+        <div [style.display]="isAdmin ? 'block' : 'none'" class="new-post-container">
           <button mat-raised-button class="new-post-button" color="accent">New Post</button>
         </div>
         <div class="feed-options">

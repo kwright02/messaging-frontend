@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, NgZone, OnInit, ViewChild} from '@angular/core';
-import {UserService} from '../user.service';
+import {GoogleAuthService} from '../google-auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class SidebarComponent implements AfterViewInit, OnInit {
 
-  constructor(private userService: UserService, private router: Router, private ngZone: NgZone) {}
+  constructor(private authService: GoogleAuthService, private router: Router, private ngZone: NgZone) {}
 
   @ViewChild('fab') fabContent;
 
@@ -21,8 +21,8 @@ export class SidebarComponent implements AfterViewInit, OnInit {
   userIconLocation: string;
 
   ngOnInit() {
-    this.userIconLocation = this.userService.getAuth().currentUser.get().getBasicProfile().getImageUrl();
-    const email = this.userService.getAuth().currentUser.get().getBasicProfile().getEmail();
+    this.userIconLocation = this.authService.getAuth().currentUser.get().getBasicProfile().getImageUrl();
+    const email = this.authService.getAuth().currentUser.get().getBasicProfile().getEmail();
 
     if (email.includes('@psdr3.org')) {
       this.isAdmin = true;
@@ -52,7 +52,7 @@ export class SidebarComponent implements AfterViewInit, OnInit {
   }
 
   logout() {
-    this.userService.getAuth().signOut();
+    this.authService.getAuth().signOut();
     this.ngZone.run(() => this.router.navigate(['/', 'login'])).then();
   }
 }

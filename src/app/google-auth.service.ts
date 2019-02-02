@@ -3,17 +3,17 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class GoogleAuthService {
 
-  private user: gapi.auth2.GoogleAuth;
+  private auth: gapi.auth2.GoogleAuth;
 
   constructor() { }
 
   getAuth(): gapi.auth2.GoogleAuth {
-    return this.user;
+    return this.auth;
   }
 
   setAuth(user: gapi.auth2.GoogleAuth) {
-    this.user = user;
+    this.auth = user;
   }
 }

@@ -7,16 +7,14 @@
         <input matInput type="text" placeholder="Search" (keyup)="fabContent.feedContent.updatePostsWithSearch(searchBar.value)" #searchBar>
       </mat-form-field>
     </form>
-    <button mat-icon-button routerLink="/login" class="exit-button">
-      <mat-icon matSuffix>exit_to_app</mat-icon>
-    </button>
+    <img (click)="logout()" class="user-icon" src="{{userIconLocation}}" alt="user_icon">
   </mat-toolbar-row>
 </mat-toolbar>
 
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" opened class="sidenav" disableClose = "true" [fixedInViewport]="false">
+    <mat-sidenav mode="side" opened class="sidenav" disableClose = "true" [fixedInViewport]="false">
       <div class="sidebar-content-container">
-        <div class="new-post-container">
+        <div [style.display]="isAdmin ? 'block' : 'none'" class="new-post-container">
           <button mat-raised-button class="new-post-button" color="accent" (click)="createScreen()"> <mat-icon>edit</mat-icon> New Post</button>
         </div>
         <div class="feed-options">

@@ -1,42 +1,41 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
-import {MonthMarker} from './month-marker';
+import {AfterViewInit, Component, NgZone, OnInit, ViewChild} from '@angular/core';
+import {GoogleAuthService} from '../google-auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements AfterViewInit {
+export class SidebarComponent implements AfterViewInit, OnInit {
 
-  constructor() {}
+  constructor(private authService: GoogleAuthService, private router: Router, private ngZone: NgZone) {}
 
-  FEED_TRANSITION_POINT = 550;
-
-  monthMarkers: MonthMarker[] = [
-    {available: false, selected: false, monthName: 'August'},
-    {available: false, selected: false, monthName: 'September'},
-    {available: false, selected: false, monthName: 'October'},
-    {available: false, selected: false, monthName: 'November'},
-    {available: false, selected: false, monthName: 'December'},
-    {available: false, selected: false, monthName: 'January'},
-    {available: false, selected: false, monthName: 'February'},
-    {available: false, selected: false, monthName: 'March'},
-    {available: false, selected: false, monthName: 'April'},
-    {available: false, selected: false, monthName: 'May'},
-    {available: false, selected: false, monthName: 'June'},
-    {available: false, selected: false, monthName: 'July'}];
-
+  @ViewChild('fab')             fabContent;
   @ViewChild('feed')            feedContent;
-  @ViewChild('feedContainer')  feedScrollingContainer;
+  @ViewChild('feedContainer')   feedScrollingContainer;
 
-  @ViewChild('searchBar')      searchBar;
+  isAdmin = false;
 
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
-  agreed = true;
+  userIconLocation: string;
 
   isCreationPostVisible = false;
+
+  ngOnInit() {
+    this.userIconLocation = this.authService.getAuth().currentUser.get().getBasicProfile().getImageUrl();
+    const email = this.authService.getAuth().currentUser.get().getBasicProfile().getEmail();
+
+    if (email.includes('@psdr3.org')) {
+      this.isAdmin = true;
+    } else if (email.includes('@student.psdr3.org')) {
+      this.isAdmin = false;
+    } else {
+      this.logout();
+    }
+  }
 
   ngAfterViewInit() {
     this.changeSection('sent');
@@ -58,9 +57,8 @@ export class SidebarComponent implements AfterViewInit {
   createScreen() {
     this.isCreationPostVisible = true;
   }
-  onVoted(agreed: boolean) {
-    if (this.agreed) {
-      this.isCreationPostVisible = false;
-    }
+  logout() {
+    this.authService.getAuth().signOut();
+    this.ngZone.run(() => this.router.navigate(['/', 'login'])).then();
   }
 }

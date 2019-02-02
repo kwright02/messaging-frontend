@@ -1,14 +1,9 @@
-<div class="centering-container">
-  <div class="login-container">
-    <mat-form-field>
-      <input matInput placeholder="Username" [type]="'text'">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'">
-      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </mat-form-field>
-
-    <button mat-button routerLink="/main">Login</button>
-  </div>
-</div>
+<html lang="en">
+  <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="180374672702-4543o9ejllfs092e7snd8fjvnf12pf6g.apps.googleusercontent.com">
+  </head>
+  <body>
+    <div class="g-signin2" data-theme="dark"></div>
+  </body>
+</html>

@@ -76,10 +76,6 @@ p {
   cursor: pointer;
 }
 
-.exit-button {
-  margin-left: 18px;
-}
-
 .toolbar-text {
   font-size: $messaging-app-font-size-heavy;
   color: $messaging-app-text;
@@ -88,4 +84,11 @@ p {
 
 .new-post-button {
   border-radius: 20px;
+}
+
+.user-icon {
+  cursor: pointer;
+  margin-left: 18px;
+  height: 44px;
+  width:  44px;
 }

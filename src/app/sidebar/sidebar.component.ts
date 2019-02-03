@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class SidebarComponent implements AfterViewInit, OnInit {
 
-  constructor(private authService: GoogleAuthService, private router: Router, private ngZone: NgZone) {}
+  constructor(public authService: GoogleAuthService, private router: Router, private ngZone: NgZone) {}
 
   @ViewChild('fab')             fabContent;
   @ViewChild('feed')            feedContent;
@@ -20,12 +20,9 @@ export class SidebarComponent implements AfterViewInit, OnInit {
   pendingClass = 'selected-month';
   sentClass = 'unselected-month';
 
-  userIconLocation: string;
-
   isCreationPostVisible = false;
 
   ngOnInit() {
-    this.userIconLocation = this.authService.getAuth().currentUser.get().getBasicProfile().getImageUrl();
     const email = this.authService.getAuth().currentUser.get().getBasicProfile().getEmail();
 
     if (email.includes('@psdr3.org')) {

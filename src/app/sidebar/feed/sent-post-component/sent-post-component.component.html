@@ -48,7 +48,7 @@
 
     <mat-action-row>
       <div class="edit-icon">
-        <button mat-icon-button (click)="openDeleteDialog()">
+        <button mat-icon-button [style.display]="authService.getAuth().currentUser.get().getBasicProfile().getEmail().includes('@psdr3.org') ? 'block' : 'none'" (click)="openDeleteDialog()">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

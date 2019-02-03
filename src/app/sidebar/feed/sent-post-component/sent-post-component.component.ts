@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DeleteDialogComponent} from '../delete-dialog/delete-dialog.component';
 import {Post} from '../../../post';
 import {MatDialog} from '@angular/material';
+import {GoogleAuthService} from '../../../google-auth.service';
 
 @Component({
   selector: 'app-sent-post-component',
@@ -13,7 +14,7 @@ export class SentPostComponentComponent implements OnInit {
   panelOpenState = false;
   @Input() post: Post;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public authService: GoogleAuthService) { }
 
   ngOnInit() {
   }

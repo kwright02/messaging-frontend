@@ -4,7 +4,9 @@
     <span class="fill-space"></span>
     <form>
       <mat-form-field floatLabel="never">
-        <input matInput type="text" placeholder="Search" (keyup)="fabContent.feedContent.updatePostsWithSearch(searchBar.value)" #searchBar>
+        <input matInput type="text" placeholder="Search" (keyup)="fabContent.feedContent.updatePostsWithSearch(searchBar.value,
+                                                                  showSeniors, showJuniors,
+                                                                  showSophomores, showFreshmen)" #searchBar>
       </mat-form-field>
     </form>
     <button mat-icon-button routerLink="/login" class="exit-button">
@@ -24,10 +26,18 @@
           <p class={{pendingClass}} (click)="changeSection('pending')">Pending</p>
           <p (click)="toggleGroups()">Groups</p>
           <ul class={{groupClass}}>
-            <li><mat-checkbox #seniorsCheckbox>Seniors</mat-checkbox></li>
-            <li><mat-checkbox #juniorsCheckbox>Juniors</mat-checkbox></li>
-            <li><mat-checkbox #sophomoresCheckbox>Sophomores</mat-checkbox></li>
-            <li><mat-checkbox #freshmenCheckbox>Freshmen</mat-checkbox></li>
+            <li><mat-checkbox (change)="fabContent.feedContent.updatePostsWithSearch(searchBar.value,
+                              showSeniors, showJuniors,
+                              showSophomores, showFreshmen)" value="true" [(ngModel)]="showSeniors">Seniors</mat-checkbox></li>
+            <li><mat-checkbox (change)="fabContent.feedContent.updatePostsWithSearch(searchBar.value,
+                              showSeniors, showJuniors,
+                              showSophomores, showFreshmen)" value="true" [(ngModel)]="showJuniors">Juniors</mat-checkbox></li>
+            <li><mat-checkbox (change)="fabContent.feedContent.updatePostsWithSearch(searchBar.value,
+                              showSeniors, showJuniors,
+                              showSophomores, showFreshmen)" value="true" [(ngModel)]="showSophomores">Sophomores</mat-checkbox></li>
+            <li><mat-checkbox (change)="fabContent.feedContent.updatePostsWithSearch(searchBar.value,
+                              showSeniors, showJuniors,
+                              showSophomores, showFreshmen)" value="true" [(ngModel)]="showFreshmen">Freshmen</mat-checkbox></li>
           </ul>
         </div>
       </div>

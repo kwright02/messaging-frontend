@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, ViewChild} from '@angular/core';
 import {MonthMarker} from './month-marker';
 
 @Component({
@@ -29,10 +29,10 @@ export class SidebarComponent implements AfterViewInit {
 
   @ViewChild('searchBar')      searchBar;
 
-  @ViewChild('seniorsCheckbox')    seniorsCheckbox;
-  @ViewChild('juniorsCheckbox')    juniorsCheckbox;
-  @ViewChild('sophomoresCheckbox') sophomoresCheckbox;
-  @ViewChild('freshmenCheckbox')   freshmenCheckbox;
+  showSeniors    = true;
+  showJuniors    = true;
+  showSophomores = true;
+  showFreshmen   = true;
 
   pendingClass = 'selected-month';
   sentClass    = 'unselected-month';
@@ -57,11 +57,8 @@ export class SidebarComponent implements AfterViewInit {
   toggleGroups() {
     if (this.groupClass === 'groups-open') {
       this.groupClass = 'groups-close';
-      console.log('close');
     } else {
       this.groupClass = 'groups-open';
-      console.log('open');
     }
-    console.log(this.groupClass);
   }
 }

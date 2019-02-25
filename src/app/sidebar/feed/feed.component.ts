@@ -1,4 +1,4 @@
-import {Component, Inject, AfterViewInit, ViewChildren, QueryList} from '@angular/core';
+import {Component, Inject, AfterViewInit, ViewChildren, QueryList, OnInit} from '@angular/core';
 import { POSTS } from '../../mock-posts';
 import {Post} from '../../post';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -11,11 +11,9 @@ import {CreatePostComponent} from '../create-post/create-post.component';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent {
+export class FeedComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {
-    this.updatePosts();
-  }
+  constructor(public dialog: MatDialog) {}
 
   monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
@@ -28,6 +26,10 @@ export class FeedComponent {
 
   pendingPosts: Post[] = [];
   sentPosts:    Post[] = [];
+
+  ngOnInit() {
+    this.updatePosts();
+  }
 
   updatePosts() {
     this.pendingPosts = [];
@@ -59,15 +61,21 @@ export class FeedComponent {
     });
     this.changeShownSection(this.shownSection);
   }
-  updatePostsWithSearch(search: string) {
+  updatePostsWithSearch(search: string, includeSeniors: boolean, includeJuniors: boolean,
+                                        includeSophomores: boolean, includeFreshmen: boolean) {
     this.pendingPosts = [];
     this.sentPosts = [];
     for (const post of this.posts) {
       if (post.title.toLowerCase().includes(search.toLowerCase())) {
-        if (post.pending) {
-          this.pendingPosts.push(post);
-        } else {
-          this.sentPosts.push(post);
+        if ((includeSeniors && post.recipients.toLowerCase().includes('seniors')) ||
+            (includeJuniors && post.recipients.toLowerCase().includes('juniors')) ||
+            (includeSophomores && post.recipients.toLowerCase().includes('sophomores')) ||
+            (includeFreshmen && post.recipients.toLowerCase().includes('freshmen'))) {
+          if (post.pending) {
+            this.pendingPosts.push(post);
+          } else {
+            this.sentPosts.push(post);
+          }
         }
       }
     }

@@ -1,6 +1,6 @@
-# MessagingApp
+# Pattonville Message Service
+This application is the webapp used by administrators for the Pattonville Message Service system.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
 
 ## Development server
 
